@@ -1,7 +1,7 @@
 # Word-Ocean-Dictionary(词海)
 Java大作业安卓开发——Word-Ocean-Dictionary(词海)
 ## 技术栈
-[![Java.8](https://img.shields.io/badge/Java-%3E%3D8-red)](https://developer.oracle.com/java/)  [![AndroidStudio](https://img.shields.io/badge/AndroidStudio-API28-blue)](https://developer.android.google.cn/studio/)
+[![Java.8](https://img.shields.io/badge/Java-%3E%3D8-brown)](https://developer.oracle.com/java/)  [![AndroidStudio](https://img.shields.io/badge/AndroidStudio-API28-red)](https://developer.android.google.cn/studio/)
 
 ## 开发人员
 
