@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Word-Ocean-Dictionary</string>
+    <string name="app_name">词海</string>
+    <string name="main_et">请输入查询汉字</string>
+    <string name="default_description">default</string>
 </resources>
