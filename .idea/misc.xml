@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_chengyu_info.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_collection.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_identify_img.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_search_chengyu.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_search_pinyin.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_setting.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_word_info.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/fragment_zi.xml" value="0.17806484295845998" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/item_exlv_group.xml" value="0.21422101449275363" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/item_search_pgv.xml" value="0.21422101449275363" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/item_searchcy_gv.xml" value="0.21422101449275363" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.168" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.168" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/drawable/main_et.xml" value="0.30462962962962964" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>

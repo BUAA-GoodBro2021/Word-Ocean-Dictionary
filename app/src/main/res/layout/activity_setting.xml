@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f3f3f3"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <ImageView
+            android:id="@+id/setting_iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:onClick="onClick"
+            android:src="@mipmap/ic_back"/>
+        <TextView
+            style="@style/titleTvStyle"
+            android:text="@string/setting"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/setting_tv_collect"
+        style="@style/settingTvStyle"
+        android:layout_marginTop="20dp"
+        android:onClick="onClick"
+        android:text="@string/setting_collect"
+        app:drawableLeftCompat="@mipmap/ic_soucang" />
+    <View
+        style="@style/settingLineStyle"/>
+    <TextView
+        android:id="@+id/setting_tv_feedback"
+        style="@style/settingTvStyle"
+        android:onClick="onClick"
+        android:text="@string/setting_feedback"
+        app:drawableLeftCompat="@mipmap/mine_customer_service" />
+    <View
+        style="@style/settingLineStyle"/>
+    <TextView
+        android:id="@+id/setting_tv_good"
+        style="@style/settingTvStyle"
+        android:onClick="onClick"
+        android:text="@string/setting_good"
+        app:drawableLeftCompat="@mipmap/mine_evaluate" />
+    <View
+        style="@style/settingLineStyle"/>
+    <TextView
+        android:id="@+id/setting_tv_share"
+        style="@style/settingTvStyle"
+        android:onClick="onClick"
+        android:text="@string/setting_share"
+        app:drawableLeftCompat="@mipmap/mine_share" />
+    <View
+        style="@style/settingLineStyle"/>
+    <TextView
+        android:id="@+id/setting_tv_about"
+        style="@style/settingTvStyle"
+        android:onClick="onClick"
+        android:text="@string/setting_about"
+        app:drawableLeftCompat="@mipmap/mine_about_us" />
+    <View
+        style="@style/settingLineStyle"/>
+</LinearLayout>
