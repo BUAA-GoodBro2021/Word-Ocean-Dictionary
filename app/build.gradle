@@ -34,6 +34,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(path: ':refresh_library')
     implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.xutils:xutils:3.9.0'
     implementation project(path: ':ocr_ui')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
