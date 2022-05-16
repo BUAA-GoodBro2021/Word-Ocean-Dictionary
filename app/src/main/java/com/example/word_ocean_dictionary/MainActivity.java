@@ -131,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
-            case R.id.main_iv_setting:
-                intent.setClass(this,SettingActivity.class);
-                startActivity(intent);
-                break;
+//            case R.id.main_iv_setting:
+//                intent.setClass(this,SettingActivity.class);
+//                startActivity(intent);
+//                break;
             case R.id.main_iv_search:
                 String text = ziEt.getText().toString();
                 if (!TextUtils.isEmpty(text)) {
