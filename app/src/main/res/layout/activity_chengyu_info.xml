@@ -68,7 +68,7 @@
             <TextView
                 style="@style/chengyuTvStyle2"
                 android:text="同义词 :"/>
-            <com.hui.dict.utils.MyGridView
+            <com.example.word_ocean_dictionary.utils.MyGridView
                 android:id="@+id/cyinfo_gv_tongyi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             <TextView
                 style="@style/chengyuTvStyle2"
                 android:text="反义词 :"/>
-            <com.hui.dict.utils.MyGridView
+            <com.example.word_ocean_dictionary.utils.MyGridView
                 android:id="@+id/cyinfo_gv_fanyi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

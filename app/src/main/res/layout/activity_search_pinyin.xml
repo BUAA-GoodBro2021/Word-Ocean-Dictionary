@@ -13,7 +13,7 @@
             android:id="@+id/searchpy_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:onClick="onClick"
             android:src="@mipmap/ic_back"/>
         <TextView
@@ -36,7 +36,7 @@
             android:id="@+id/searchpy_gv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
             android:layout_weight="2"
             android:gravity="center"

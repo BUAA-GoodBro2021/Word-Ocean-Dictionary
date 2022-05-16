@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/drawable/chengyu_tv_bg.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/drawable/main_et.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/drawable/main_et_bg.xml" value="0.1" />
+        <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/drawable/search_tv_bg.xml" value="0.1" />
         <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_chengyu_info.xml" value="0.1" />
         <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_collection.xml" value="0.1" />
         <entry key="..\:/GitHub/Word-Ocean-Dictionary/app/src/main/res/layout/activity_identify_img.xml" value="0.1" />

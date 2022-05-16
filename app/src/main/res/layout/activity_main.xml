@@ -59,23 +59,23 @@
         <TextView
             android:id="@+id/main_tv_pinyin"
             style="@style/mainTvStyle"
-            android:drawableTop="@mipmap/m_pinyin"
-            android:text="@string/main_tv_pinyin"/>
+            android:text="@string/main_tv_pinyin"
+            app:drawableTopCompat="@mipmap/m_pinyin" />
         <TextView
             android:id="@+id/main_tv_bushou"
             style="@style/mainTvStyle"
-            android:drawableTop="@mipmap/m_bushou"
-            android:text="@string/main_tv_bushou"/>
+            android:text="@string/main_tv_bushou"
+            app:drawableTopCompat="@mipmap/m_bushou" />
         <TextView
             android:id="@+id/main_tv_chengyu"
             style="@style/mainTvStyle"
-            android:drawableTop="@mipmap/m_chengyu"
-            android:text="@string/main_tv_chengyu"/>
+            android:text="@string/main_tv_chengyu"
+            app:drawableTopCompat="@mipmap/m_chengyu" />
         <TextView
             android:id="@+id/main_tv_tuwen"
             style="@style/mainTvStyle"
-            android:drawableTop="@mipmap/m_xiangji"
-            android:text="@string/main_tv_tuwen"/>
+            android:text="@string/main_tv_tuwen"
+            app:drawableTopCompat="@mipmap/m_xiangji" />
     </LinearLayout>
 
     <LinearLayout

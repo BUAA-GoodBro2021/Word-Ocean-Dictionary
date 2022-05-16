@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Word-Ocean-Dictionary"
 include ':app'
+include ':refresh_library'
