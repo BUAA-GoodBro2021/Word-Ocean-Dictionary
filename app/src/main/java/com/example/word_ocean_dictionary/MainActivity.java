@@ -1,12 +1,12 @@
 package com.example.word_ocean_dictionary;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int REQUEST_CODE_GENERAL_BASIC = 106;
     TextView pyTv,bsTv,cyuTv,twenTv,juziTv;
     EditText ziEt;
     private boolean hasGotToken = false;
+    private static final int REQUEST_CODE_GENERAL_BASIC = 106;
     private AlertDialog.Builder alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +55,27 @@ public class MainActivity extends AppCompatActivity {
         OCR.getInstance(this).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
             @Override
             public void onResult(AccessToken result) {
+                String token = result.getAccessToken();
                 hasGotToken = true;
             }
             @Override
             public void onError(OCRError error) {
                 error.printStackTrace();
-                alertText(error.getMessage());
+                alertText("AK，SK方式获取token失败", error.getMessage());
             }
         }, getApplicationContext(),  "MSaY1m8CryxI44ILaMu3e76H", "iqZmCIIWOwTKCrsQP8h7ps54yOS4KSXc");
     }
 
-    private void alertText(final String message) {
-        this.runOnUiThread(() -> alertDialog.setTitle("AK，SK方式获取token失败")
-                .setMessage(message)
-                .setPositiveButton("确定", null)
-                .show());
+    private void alertText(final String title, final String message) {
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                alertDialog.setTitle(title)
+                        .setMessage(message)
+                        .setPositiveButton("确定", null)
+                        .show();
+            }
+        });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -77,35 +83,38 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_GENERAL_BASIC && resultCode == Activity.RESULT_OK) {
             RecognizeService.recGeneralBasic(this, FileUtil.getSaveFile(getApplicationContext()).getAbsolutePath(),
-                    result -> {
-                        //result是识别出的字符串，可以将字符串传递给下一个界面
-                        TuWenBean wenBean = new Gson().fromJson(result, TuWenBean.class);
-                        List<TuWenBean.WordsResultBean> wordsList = wenBean.getWords_result();
-                        //将提取到的有用的汉字存放到集合当中，传递到下一个界面
-                        ArrayList<String> list = new ArrayList<>();
-                        if (wordsList != null && wordsList.size() != 0) {
-                            for (int i = 0; i < wordsList.size(); i++) {
-                                TuWenBean.WordsResultBean bean = wordsList.get(i);
-                                String words = bean.getWords();
-                                String res = PatternUtils.removeAll(words);
-                                //将字符串当中每一个字符串都添加到集合当中
-                                for (int j = 0; j < res.length(); j++) {
-                                    String s = String.valueOf(res.charAt(j));
+                    new RecognizeService.ServiceListener() {
+                        @Override
+                        public void onResult(String result) {
+                            //result是识别出的字符串，可以将字符串传递给下一个界面
+                            TuWenBean wenBean = new Gson().fromJson(result, TuWenBean.class);
+                            List<TuWenBean.WordsResultBean> wordsList = wenBean.getWords_result();
+                            //将提取到的有用的汉字存放到集合当中，传递到下一个界面
+                            ArrayList<String> list = new ArrayList<>();
+                            if (wordsList != null && wordsList.size() != 0) {
+                                for (int i = 0; i < wordsList.size(); i++) {
+                                    TuWenBean.WordsResultBean bean = wordsList.get(i);
+                                    String words = bean.getWords();
+                                    String res = PatternUtils.removeAll(words);
+                                    //将字符串当中每一个字符串都添加到集合当中
+                                    for (int j = 0; j < res.length(); j++) {
+                                        String s = String.valueOf(res.charAt(j));
 //                                        添加集合之前，先判断一下，集合是否包括这个汉字
-                                    if (!list.contains(s)) {
-                                        list.add(s);
+                                        if (!list.contains(s)) {
+                                            list.add(s);
+                                        }
                                     }
                                 }
-                            }
 //                                判断是否有可识别的文字
-                            if (list.size() == 0) {
-                                Toast.makeText(MainActivity.this, "无法识别图片中的文字！", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Intent it = new Intent(MainActivity.this, IdentifyImgActivity.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putStringArrayList("wordlist", list);
-                                it.putExtras(bundle);
-                                startActivity(it);
+                                if (list.size() == 0) {
+                                    Toast.makeText(MainActivity.this, "无法识别图片中的文字！", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Intent it = new Intent(MainActivity.this, IdentifyImgActivity.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putStringArrayList("wordlist", list);
+                                    it.putExtras(bundle);
+                                    startActivity(it);
+                                }
                             }
                         }
                     });
@@ -127,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
         ziEt = findViewById(R.id.main_et);
     }
 
-    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -151,10 +159,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.setClass(this,SearchBuShouActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.main_tv_chengyu:
-                intent.setClass(this,SearchChengyuActivity.class);
-                startActivity(intent);
-                break;
+//            case R.id.main_tv_chengyu:
+//                intent.setClass(this,SearchChengyuActivity.class);
+//                startActivity(intent);
+//                break;
             case R.id.main_tv_tuwen:
                 if (!checkTokenStatus()) {
                     return;

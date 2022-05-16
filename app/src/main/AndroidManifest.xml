@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.word_ocean_dictionary">
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:name=".UniteApplication"
@@ -16,15 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CollectionActivity"></activity>
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".ChengyuInfoActivity" />
-        <activity android:name=".SearchChengyuActivity" />
+<!--        <activity android:name=".CollectionActivity"></activity>-->
+<!--        <activity android:name=".SettingActivity" />-->
+<!--        <activity android:name=".ChengyuInfoActivity" />-->
+<!--        <activity android:name=".SearchChengyuActivity" />-->
         <activity android:name=".IdentifyImgActivity" />
         <activity android:name=".WordInfoActivity" />
         <activity android:name=".SearchPinyinActivity" />
         <activity android:name=".SearchBuShouActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

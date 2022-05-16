@@ -5,52 +5,52 @@
 5
 6    <uses-sdk
 7        android:minSdkVersion="21"
-7-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml
-8        android:targetSdkVersion="29" />
-8-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml
+7-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
+8        android:targetSdkVersion="32" />
+8-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
 9
 10    <uses-permission android:name="android.permission.CAMERA" />
-10-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:7:5-64
-10-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:7:22-62
+10-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:7:5-64
+10-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:7:22-62
 11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:8:5-79
-11-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:8:22-77
+11-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:8:5-79
+11-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:8:22-77
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:9:5-80
-12-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:9:22-78
+12-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:9:5-80
+12-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:9:22-78
 13
 14    <uses-feature android:name="android.hardware.camera2.full" />
-14-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:10:5-65
-14-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:10:19-63
+14-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:10:5-65
+14-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:10:19-63
 15    <uses-feature android:name="android.hardware.camera" />
-15-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:11:5-59
-15-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:11:19-57
+15-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:11:5-59
+15-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:11:19-57
 16    <uses-feature android:name="android.hardware.camera.autofocus" />
-16-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:12:5-70
-16-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:12:19-67
+16-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:12:5-70
+16-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:12:19-67
 17
 18    <application
-18-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:14:5-25:19
+18-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:14:5-25:19
 19        android:allowBackup="true"
-19-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:14:18-44
+19-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:14:18-44
 20        android:icon="@mipmap/ic_launcher"
-20-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:16:18-52
+20-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:16:18-52
 21        android:label="@string/app_name"
-21-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:15:18-50
+21-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:15:18-50
 22        android:supportsRtl="true"
-22-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:17:18-44
+22-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:17:18-44
 23        android:theme="@style/AppTheme"
-23-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:19:18-49
+23-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:19:18-49
 24        android:vmSafeMode="true" >
-24-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:18:18-43
+24-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:18:18-43
 25        <activity
-25-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:21:9-23:85
+25-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:21:9-23:85
 26            android:name="com.baidu.ocr.ui.camera.CameraActivity"
-26-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:21:19-72
+26-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:21:19-72
 27            android:configChanges="screenSize|orientation"
-27-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:22:19-65
+27-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:22:19-65
 28            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
-28-->D:\AndroidStudioProjects\chinese-dictionary-master\ocr_ui\src\main\AndroidManifest.xml:23:19-83
+28-->D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:23:19-83
 29    </application>
 30
 31</manifest>
