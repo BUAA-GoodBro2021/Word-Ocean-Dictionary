@@ -12,7 +12,7 @@
             android:id="@+id/wordinfo_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:onClick="onClick"
             android:src="@mipmap/ic_back"/>
         <TextView
@@ -22,41 +22,41 @@
             android:id="@+id/wordinfo_iv_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:src="@mipmap/ic_collection"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_collection"/>
+            android:layout_marginRight="10dp"
+            android:onClick="onClick"/>
     </RelativeLayout>
     <TextView
         android:id="@+id/word_tv_zi"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:text=""
         android:layout_below="@id/word_layout_top"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:textSize="70sp"
+        android:textColor="@color/red"
         android:background="@mipmap/ic_text_bg"
         android:gravity="center"
-        android:text=""
-        android:textColor="@color/red"
-        android:textSize="70sp"/>
+        android:layout_marginTop="20dp"/>
     <TextView
         android:id="@+id/word_tv_pinyin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/word_tv_zi"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:gravity="center"
         android:text=""
+        android:textSize="30sp"
+        android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="30sp"/>
+        android:layout_margin="10dp"/>
     <LinearLayout
         android:id="@+id/word_layout_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/word_tv_pinyin"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_below="@id/word_tv_pinyin">
         <TextView
             android:id="@+id/word_tv_bushou"
             style="@style/wordTvStyle"
@@ -74,19 +74,19 @@
         android:id="@+id/word_layout_js"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_below="@id/word_layout_center"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp">
         <TextView
             android:id="@+id/word_tv_js"
             style="@style/wordTvJSStyle"
-            android:text="@string/word_tv_basicjs"
-            android:textColor="@color/red"/>
+            android:textColor="@color/red"
+            android:text="@string/word_tv_basicjs"/>
         <TextView
             android:id="@+id/word_tv_xxjs"
             style="@style/wordTvJSStyle"
-            android:text="@string/word_tv_desjs"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:text="@string/word_tv_desjs"/>
     </LinearLayout>
     <ListView
         android:id="@+id/word_lv_js"

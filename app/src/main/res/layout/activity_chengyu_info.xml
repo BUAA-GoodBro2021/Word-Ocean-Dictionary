@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_f3f3f3"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/grey_f3f3f3">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -13,7 +13,7 @@
             android:id="@+id/cyinfo_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:onClick="onClick"
             android:src="@mipmap/ic_back"/>
         <TextView
@@ -23,11 +23,11 @@
             android:id="@+id/cyinfo_iv_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:src="@mipmap/ic_collection"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_collection"/>
+            android:layout_marginRight="10dp"
+            android:onClick="onClick"/>
     </RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -35,8 +35,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/grey_f3f3f3"
             android:orientation="vertical"
+            android:background="@color/grey_f3f3f3"
             android:padding="20dp">
             <LinearLayout
                 android:id="@+id/cyinfo_layout_zi"
@@ -68,21 +68,21 @@
             <TextView
                 style="@style/chengyuTvStyle2"
                 android:text="同义词 :"/>
-            <com.example.word_ocean_dictionary.utils.MyGridView
+            <com.hui.dict.utils.MyGridView
                 android:id="@+id/cyinfo_gv_tongyi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:numColumns="5"/>
+                android:numColumns="5"
+                android:layout_marginTop="10dp"/>
             <TextView
                 style="@style/chengyuTvStyle2"
                 android:text="反义词 :"/>
-            <com.example.word_ocean_dictionary.utils.MyGridView
+            <com.hui.dict.utils.MyGridView
                 android:id="@+id/cyinfo_gv_fanyi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:numColumns="5"/>
+                android:numColumns="5"
+                android:layout_marginTop="10dp"/>
 
             <!-- 成语解释的相关内容-->
             <RelativeLayout
@@ -106,9 +106,9 @@
                     android:id="@+id/cyinfo_tv_js"
                     style="@style/chengyuTvStyle2"
                     android:layout_below="@id/cyinfo_line1"
+                    android:textSize="18sp"
                     android:layout_centerHorizontal="true"
-                    android:text=""
-                    android:textSize="18sp"/>
+                    android:text=""/>
                 <TextView
                     android:id="@+id/cyinfo_tv2"
                     style="@style/chengyuTvStyle3"
@@ -118,10 +118,10 @@
                     android:id="@+id/cyinfo_tv_from"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_js"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@id/cyinfo_tv2"
+                    android:layout_below="@id/cyinfo_tv_js"
                     android:text=""/>
                 <TextView
                     android:id="@+id/cyinfo_tv3"
@@ -132,10 +132,10 @@
                     android:id="@+id/cyinfo_tv_example"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_from"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@id/cyinfo_tv3"
+                    android:layout_below="@id/cyinfo_tv_from"
                     android:text=""/>
                 <TextView
                     android:id="@+id/cyinfo_tv4"
@@ -146,10 +146,10 @@
                     android:id="@+id/cyinfo_tv_yufa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_example"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@id/cyinfo_tv4"
+                    android:layout_below="@id/cyinfo_tv_example"
                     android:text=""/>
                 <TextView
                     android:id="@+id/cyinfo_tv5"
@@ -160,10 +160,10 @@
                     android:id="@+id/cyinfo_tv_yinzheng"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_yufa"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@id/cyinfo_tv5"
+                    android:layout_below="@id/cyinfo_tv_yufa"
                     android:text=""/>
             </RelativeLayout>
 
@@ -188,10 +188,10 @@
                     android:id="@+id/cyinfo_tv_yinghan"
                     style="@style/chengyuTvStyle2"
                     android:layout_below="@id/cyinfo_line2"
-                    android:layout_centerHorizontal="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_centerHorizontal="true"
                     android:textSize="18sp"/>
             </RelativeLayout>
         </LinearLayout>

@@ -1,12 +1,3 @@
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
-    }
-}
-rootProject.name = "Word-Ocean-Dictionary"
-include ':app'
+include ':app', ':ocr_ui'
+rootProject.name='Dict'
 include ':refresh_library'
-include ':ocr_ui'

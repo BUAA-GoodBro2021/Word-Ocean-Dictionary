@@ -13,9 +13,8 @@
     <string name="indetify_img" translatable="false">图片识别</string>
     <string name="chengyu_tv_history" translatable="false">历史记录</string>
     <string name="chengyu_tv_info" translatable="false">成语详情</string>
-    <string name="main_tv_yiju2" translatable="false">斗宗强者，恐怖如斯！</string>
+    <string name="main_tv_yiju2" translatable="false">斗宗强者，恐怖如斯</string>
     <string name="setting" translatable="false">设置</string>
-
     <string name="setting_collect" translatable="false">收藏</string>
     <string name="setting_feedback" translatable="false">反馈</string>
     <string name="setting_share" translatable="false">分享</string>
@@ -23,5 +22,5 @@
     <string name="setting_about" translatable="false">关于我们</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

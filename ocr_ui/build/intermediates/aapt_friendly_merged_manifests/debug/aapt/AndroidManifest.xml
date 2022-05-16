@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--   ~ Copyright (C) 2017 Baidu, Inc. All Rights Reserved. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.baidu.ocr.ui" >
+    package="com.baidu.ocr.ui"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="21"

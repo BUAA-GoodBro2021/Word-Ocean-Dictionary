@@ -13,9 +13,9 @@
             android:id="@+id/iden_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_back"/>
+            android:src="@mipmap/ic_back"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick"/>
         <TextView
             style="@style/titleTvStyle"
             android:text="@string/indetify_img"/>

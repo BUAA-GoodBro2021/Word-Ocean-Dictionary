@@ -3,9 +3,21 @@ manifest
 ADDED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
 INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
 INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
 	package
 		ADDED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:5:11-37
 		INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
+		ADDED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
+		ADDED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:1-27:12
 		INJECTED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\GitHub\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:4:11-69

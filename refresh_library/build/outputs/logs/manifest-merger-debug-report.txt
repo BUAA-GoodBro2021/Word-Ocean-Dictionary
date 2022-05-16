@@ -3,16 +3,24 @@ manifest
 ADDED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
 INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
 INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
+INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:1-11:12
 	package
 		ADDED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:3:5-49
 		INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
 		INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
 	android:versionName
 		ADDED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:5:5-32
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
 		ADDED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:4:5-31
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
+		INJECTED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
 application
 ADDED from D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:9:5-20
 uses-sdk
