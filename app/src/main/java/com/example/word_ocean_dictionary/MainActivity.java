@@ -1,4 +1,4 @@
-package com.hui.dict;
+package com.example.word_ocean_dictionary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -18,10 +18,10 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.google.gson.Gson;
-import com.hui.dict.bean.TuWenBean;
-import com.hui.dict.utils.FileUtil;
-import com.hui.dict.utils.PatternUtils;
-import com.hui.dict.utils.RecognizeService;
+import com.example.word_ocean_dictionary.bean.TuWenBean;
+import com.example.word_ocean_dictionary.utils.FileUtil;
+import com.example.word_ocean_dictionary.utils.PatternUtils;
+import com.example.word_ocean_dictionary.utils.RecognizeService;
 
 import java.util.ArrayList;
 import java.util.List;
