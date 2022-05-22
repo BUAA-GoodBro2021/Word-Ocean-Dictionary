@@ -2,38 +2,40 @@ package com.hui.dict;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.hui.dict.adapter.SearchLeftAdapter;
 import com.hui.dict.adapter.SearchRightAdapter;
 import com.hui.dict.bean.PinBuBean;
-import com.hui.dict.bean.PinBuWordBean;
-import com.hui.dict.db.DBManager;
+import com.hui.dict.bean.StaticData;
+import com.hui.dict.bean.ZiBean;
+//import com.hui.dict.db.DBManager;
 import com.hui.dict.utils.AssetsUtils;
 import com.hui.dict.utils.CommonUtils;
-import com.hui.dict.utils.URLUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseSearchActivity extends BaseActivity {
+public class BaseSearchActivity extends AppCompatActivity {
     ExpandableListView exLv;
     PullToRefreshGridView pullGv;
     TextView titleTv;
     List<String> groupDatas;  //表示分组的列表   [A,B,C,D.....]
-    List<List<PinBuBean.ResultBean>>childDatas;  //将魅族对应的子类i列表存放到这个集合
+    List<List<PinBuBean.ResultBean>> childDatas;  //将魅族对应的子类i列表存放到这个集合
     SearchLeftAdapter adapter;
     int selGroupPos = 0;    //表示被点击的组的位置
     int selChildPos = 0;   //表示选中组中某一个位置
     // 右侧的GridView的数据源，先声明
-    List<PinBuWordBean.ResultBean.ListBean> gridDatas;
+    List<ZiBean> gridDatas;
     private SearchRightAdapter gridAdapter;
 
     int totalpage;   //总页数
@@ -71,12 +73,13 @@ public class BaseSearchActivity extends BaseActivity {
 //                判断当前加载的页数，是否小于总页数
                 if(page<totalpage){
                     page++;
+                    List<ZiBean> list = new ArrayList<>();
                     if (type == CommonUtils.TYPE_PINYIN) {
-                        url = URLUtils.getPinyinurl(word,page,pagesize);
+                        list = StaticData.ziBeanPinYinMap.get(word).get(page - 1).getList();
                     }else if (type == CommonUtils.TYPE_BUSHOU) {
-                        url = URLUtils.getBushouurl(word,page,pagesize);
+                        list = StaticData.ziBeanBuShouMap.get(word).get(page - 1).getList();
                     }
-                    loadData(url);
+                    refreshDataByGV(list);
                 }else{
                     pullGv.onRefreshComplete();  //不用加载数据  可以弹出Toast提示信息
                 }
@@ -87,7 +90,7 @@ public class BaseSearchActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                跳转到文字查询详情页面
-                PinBuWordBean.ResultBean.ListBean bean = gridDatas.get(position);
+                ZiBean bean = gridDatas.get(position);
                 String zi = bean.getZi();
                 Intent intent = new Intent(getBaseContext(), WordInfoActivity.class);
                 intent.putExtra("zi",zi);
@@ -96,35 +99,22 @@ public class BaseSearchActivity extends BaseActivity {
         });
 
     }
-    /**
-     * 加载数据成功时，会调用的方法，因为JSON数据格式相同，解析到相同的集合里，所以就将代码到父类当中编写
-     * */
-    @Override
-    public void onSuccess(String result) {
-        PinBuWordBean bean = new Gson().fromJson(result, PinBuWordBean.class);
-        PinBuWordBean.ResultBean resultBean = bean.getResult();
-        totalpage = resultBean.getTotalpage();   //将当前获取数据的总页数进行保存
-        List<PinBuWordBean.ResultBean.ListBean> list = resultBean.getList();
-//        将数据进行加载
-        refreshDataByGV(list);
-//        将加载到的网络数据写入到数据库当中
-        writeDBByThread(list);
-    }
-    /**
-     * @des 将网络数据保存到数据库当中，为了避免ANR，就使用子线程，完成操作
-     * */
-    public void writeDBByThread(final List<PinBuWordBean.ResultBean.ListBean> list) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                DBManager.insertListToPywordtb(list);
-            }
-        }).start();
-    }
+
+//    /**
+//     * @des 将网络数据保存到数据库当中，为了避免ANR，就使用子线程，完成操作
+//     * */
+//    public void writeDBByThread(final List<ZiBean> list) {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                DBManager.insertListToPywordtb(list);
+//            }
+//        }).start();
+//    }
     /**
      * 更新GridView当中的数据，提示适配器重新加载
      * */
-    public void refreshDataByGV(List<PinBuWordBean.ResultBean.ListBean> list) {
+    public void refreshDataByGV(List<ZiBean> list) {
         if (page == 1) {   //加载了新的拼音或者部首对应的集合
             gridDatas.clear();
             gridDatas.addAll(list);
@@ -148,8 +138,8 @@ public class BaseSearchActivity extends BaseActivity {
 //                获取被点击位置的内容
                 selGroupPos = groupPosition;
                 int groupSize = childDatas.get(selGroupPos).size();
-                if (groupSize<=selChildPos){
-                    selChildPos = groupSize-1;
+                if (groupSize <= selChildPos){
+                    selChildPos = groupSize - 1;
                     adapter.setSelectChildPos(selChildPos);
                 }
                 adapter.notifyDataSetInvalidated();   //数据没有改变，只是布局背景改变了
@@ -179,17 +169,13 @@ public class BaseSearchActivity extends BaseActivity {
         List<PinBuBean.ResultBean> groupList = childDatas.get(selGroupPos);  //获取选中组
             page = 1;
             PinBuBean.ResultBean bean = groupList.get(selChildPos);
+            List<ZiBean> list = new ArrayList<>();
             if (type == CommonUtils.TYPE_PINYIN) {
-                word = bean.getPinyin();
-                Log.i("animee", "getDataAlterWord: word==="+word);
-                url = URLUtils.getPinyinurl(word,page,pagesize);
+                list = StaticData.ziBeanPinYinMap.get(word).get(page - 1).getList();
             }else if (type == CommonUtils.TYPE_BUSHOU) {
-                word = bean.getBushou();
-                Log.i("animee", "getDataAlterWord: word==="+word);
-                url = URLUtils.getBushouurl(word,page,pagesize);
+                list = StaticData.ziBeanBuShouMap.get(word).get(page - 1).getList();
             }
-            loadData(url);
-
+            refreshDataByGV(list);
     }
 
     public void initData(String assetsName,int type) {

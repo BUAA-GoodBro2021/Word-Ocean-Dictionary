@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.hui.dict.R;
 import com.hui.dict.bean.PinBuWordBean;
+import com.hui.dict.bean.StaticData;
+import com.hui.dict.bean.ZiBean;
 
 import java.util.List;
 
@@ -18,9 +20,9 @@ import java.util.List;
  * */
 public class SearchRightAdapter extends BaseAdapter {
     Context context;
-    List<PinBuWordBean.ResultBean.ListBean> mDatas;
+    List<ZiBean> mDatas;
     LayoutInflater inflater;
-    public SearchRightAdapter(Context context, List<PinBuWordBean.ResultBean.ListBean> mDatas) {
+    public SearchRightAdapter(Context context, List<ZiBean> mDatas) {
         this.context = context;
         this.mDatas = mDatas;
         inflater = LayoutInflater.from(context);
@@ -51,7 +53,7 @@ public class SearchRightAdapter extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        PinBuWordBean.ResultBean.ListBean bean = mDatas.get(position);
+        ZiBean bean = mDatas.get(position);
         String zi = bean.getZi();
         holder.tv.setText(zi);
         return convertView;

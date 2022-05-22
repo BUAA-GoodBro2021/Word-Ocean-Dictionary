@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
-import com.hui.dict.db.DBManager;
+//import com.hui.dict.db.DBManager;
 import java.util.ArrayList;
 import java.util.List;
 public class SearchChengyuActivity extends AppCompatActivity {
@@ -52,9 +52,9 @@ public class SearchChengyuActivity extends AppCompatActivity {
      * */
     private void initDatas() {
         mDatas.clear();
-        List<String> list = DBManager.queryAllCyFromCyutb();
-        mDatas.addAll(list);
-        adapter.notifyDataSetChanged();
+//        List<String> list = DBManager.queryAllCyFromCyutb();
+//        mDatas.addAll(list);
+//        adapter.notifyDataSetChanged();
     }
 
     public void onClick(View view){

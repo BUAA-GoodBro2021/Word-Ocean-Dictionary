@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.hui.dict.bean.WordBean;
-import com.hui.dict.db.DBManager;
+//import com.hui.dict.db.DBManager;
 import com.hui.dict.utils.URLUtils;
 
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class WordInfoActivity extends BaseActivity {
 //        加载网络数据
         loadData(url);
 //        调用判断是否已经收藏了的方法
-        isExist = DBManager.isExistZiInCollwordtb(zi);
+//        isExist = DBManager.isExistZiInCollwordtb(zi);
         isCollect = isExist;   //记录初始状态
         setCollectIvStyle();
     }
@@ -71,7 +71,7 @@ public class WordInfoActivity extends BaseActivity {
         WordBean wordBean = new Gson().fromJson(json, WordBean.class);
         WordBean.ResultBean resultBean = wordBean.getResult();
         // 插入数据库
-        DBManager.insertWordToWordtb(resultBean);
+//        DBManager.insertWordToWordtb(resultBean);
         // 将数据显示在View控件上
         notifyView(resultBean);
     }
@@ -96,10 +96,10 @@ public class WordInfoActivity extends BaseActivity {
     @Override
     public void onError(Throwable ex, boolean isOnCallback) {
 //            联网失败，获取数据库当中字的信息
-        WordBean.ResultBean bean = DBManager.queryWordFromWordtb(zi);
-        if (bean!=null) {
-            notifyView(bean);
-        }
+//        WordBean.ResultBean bean = DBManager.queryWordFromWordtb(zi);
+//        if (bean!=null) {
+//            notifyView(bean);
+//        }
     }
 
     private void initView() {
@@ -147,13 +147,13 @@ public class WordInfoActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (isExist&&!isCollect) {
-//            原来数据收藏，后来不想收藏了，需要删除
-            DBManager.deleteZiToCollwordtb(zi);
-        }
-        if (!isExist&&isCollect) {
-//            原来不存在，后来需要收藏，要插入数据
-            DBManager.insertZiToCollwordtb(zi);
-        }
+//        if (isExist&&!isCollect) {
+////            原来数据收藏，后来不想收藏了，需要删除
+//            DBManager.deleteZiToCollwordtb(zi);
+//        }
+//        if (!isExist&&isCollect) {
+////            原来不存在，后来需要收藏，要插入数据
+//            DBManager.insertZiToCollwordtb(zi);
+//        }
     }
 }

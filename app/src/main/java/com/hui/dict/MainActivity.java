@@ -18,13 +18,23 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.hui.dict.bean.PinBuBean;
+import com.hui.dict.bean.StaticData;
 import com.hui.dict.bean.TuWenBean;
+import com.hui.dict.bean.ZiBean;
+import com.hui.dict.utils.AssetsUtils;
+import com.hui.dict.utils.CommonUtils;
 import com.hui.dict.utils.FileUtil;
 import com.hui.dict.utils.PatternUtils;
 import com.hui.dict.utils.RecognizeService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     TextView pyTv,bsTv,cyuTv,twenTv,juziTv;
@@ -39,7 +49,90 @@ public class MainActivity extends AppCompatActivity {
         initView();
         alertDialog = new AlertDialog.Builder(this);
         initAccessTokenWithAkSk();
+        initList();
     }
+
+    private void initList() {
+        String ziList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_ZI);
+        JsonArray jsonArray = JsonParser.parseString(ziList).getAsJsonArray();
+        Gson gson = new Gson();
+        List<ZiBean> ziBeans = new ArrayList<>();
+        Map<String, List<ZiBean>> pinYinBeans = new HashMap<>();
+        Map<String, List<ZiBean>> buShouBeans = new HashMap<>();
+        for(JsonElement json: jsonArray){
+            ZiBean ziBean = gson.fromJson(json, ZiBean.class);
+            ziBeans.add(ziBean);
+        }
+        String pinYinList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_PINYIN);
+        String buShouList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_BUSHOU);
+        PinBuBean pinYinBean = gson.fromJson(pinYinList, PinBuBean.class);
+        PinBuBean buShouBean = gson.fromJson(buShouList, PinBuBean.class);
+        StaticData.pinYinBean = pinYinBean;
+        StaticData.buShouBean = buShouBean;
+        StaticData.ziBeanPinYinMap = new HashMap<>();
+        StaticData.ziBeanBuShouMap = new HashMap<>();
+        for(PinBuBean.ResultBean resultBean: StaticData.pinYinBean.getResult()){
+            pinYinBeans.put(resultBean.getPinyin(), new ArrayList<ZiBean>());
+        }
+        for(PinBuBean.ResultBean resultBean: StaticData.buShouBean.getResult()){
+            buShouBeans.put(resultBean.getBushou(), new ArrayList<ZiBean>());
+        }
+        StaticData.ziBeans = ziBeans;
+        for(ZiBean ziBean: StaticData.ziBeans){
+            for(String pinyin: ziBean.getPinyin_origin()){
+                pinYinBeans.get(pinyin).add(ziBean);
+            }
+            String bushou = ziBean.getBushou();
+            if(bushou != null){
+                buShouBeans.get(bushou).add(ziBean);
+            }
+        }
+        for(String key: pinYinBeans.keySet()){
+            List<StaticData.ListBean> listBeans = new ArrayList<>();
+            int totalCount = pinYinBeans.get(key).size();
+            int restCount = totalCount;
+            int pageSize = Math.min(restCount, 48);
+            int page = 1;
+            int totalPage = (int)(Math.ceil((double)(totalCount) / 48));
+            while(pageSize > 0){
+                StaticData.ListBean listBean = new StaticData.ListBean();
+                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize - 1;i++){
+                    listBean.getList().add(pinYinBeans.get(key).get(i));
+                }
+                listBean.setPage(page++);
+                listBean.setPageSize(pageSize);
+                listBean.setTotalPage(totalPage);
+                listBean.setTotalCount(totalCount);
+                listBeans.add(listBean);
+                restCount -= pageSize;
+                pageSize = Math.min(restCount, 48);
+            }
+            StaticData.ziBeanPinYinMap.put(key, listBeans);
+        }
+        for(String key: buShouBeans.keySet()){
+            List<StaticData.ListBean> listBeans = new ArrayList<>();
+            int totalCount = buShouBeans.get(key).size();
+            int restCount = totalCount;
+            int pageSize = Math.min(restCount, 48);
+            int page = 1;
+            int totalPage = (int)(Math.ceil((double)(totalCount) / 48));
+            while(pageSize > 0){
+                StaticData.ListBean listBean = new StaticData.ListBean();
+                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize - 1;i++){
+                    listBean.getList().add(buShouBeans.get(key).get(i));
+                }
+                listBean.setPage(page++);
+                listBean.setPageSize(pageSize);
+                listBean.setTotalPage(totalPage);
+                listBean.setTotalCount(totalCount);
+                listBeans.add(listBean);
+                restCount -= pageSize;
+                pageSize = Math.min(restCount, 48);
+            }
+            StaticData.ziBeanBuShouMap.put(key, listBeans);
+        }
+    }
+
 
     private boolean checkTokenStatus() {
         if (!hasGotToken) {

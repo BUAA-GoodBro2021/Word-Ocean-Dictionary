@@ -16,7 +16,7 @@ import android.widget.GridView;
 import com.hui.dict.ChengyuInfoActivity;
 import com.hui.dict.R;
 import com.hui.dict.WordInfoActivity;
-import com.hui.dict.db.DBManager;
+//import com.hui.dict.db.DBManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +54,12 @@ public class ZiFragment extends Fragment {
     private void loadData() {
         List<String>list;
         mDatas.clear();
-        if (type.equals("汉字")) {
-            list = DBManager.queryAllInCollwordtb();
-        }else{
-            list = DBManager.queryAllCyuInCollcyutb();
-        }
-        mDatas.addAll(list);
+//        if (type.equals("汉字")) {
+//            list = DBManager.queryAllInCollwordtb();
+//        }else{
+//            list = DBManager.queryAllCyuInCollcyutb();
+//        }
+//        mDatas.addAll(list);
         adapter.notifyDataSetChanged();;
     }
 

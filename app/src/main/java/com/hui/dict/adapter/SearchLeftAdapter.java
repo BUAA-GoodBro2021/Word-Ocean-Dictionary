@@ -16,12 +16,12 @@ import java.util.List;
 
 public class SearchLeftAdapter extends BaseExpandableListAdapter {
     Context context;
-    List<String>groupDatas;   //表示分组的列表
+    List<String> groupDatas;   //表示分组的列表
     // 将每组对应的子类列表存放到这个集合
-    List<List<PinBuBean.ResultBean>>childDatas;
+    List<List<PinBuBean.ResultBean>> childDatas;
     LayoutInflater inflater;
     int type;   //因为拼音和部首都用此适配器，所以通过这个属性，进行类型区分
-    int selectGroupPos = 0,selectChildPos = 0;  //表示被选中的组的位置，和被选中的组里面的item的位置
+    int selectGroupPos = 0, selectChildPos = 0;  //表示被选中的组的位置，和被选中的组里面的item的位置
 
     public void setSelectChildPos(int selectChildPos) {
         this.selectChildPos = selectChildPos;

@@ -6,11 +6,11 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
+8-->E:\Github\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
+9-->E:\Github\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml
 10
 11    <application />
-11-->D:\GitHub\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:9:5-20
+11-->E:\Github\Word-Ocean-Dictionary\refresh_library\src\main\AndroidManifest.xml:9:5-20
 12
 13</manifest>

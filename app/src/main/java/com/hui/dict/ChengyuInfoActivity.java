@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.hui.dict.bean.ChengyuBean;
-import com.hui.dict.db.DBManager;
+//import com.hui.dict.db.DBManager;
 import com.hui.dict.utils.MyGridView;
 import com.hui.dict.utils.URLUtils;
 
@@ -42,7 +42,7 @@ public class ChengyuInfoActivity extends BaseActivity {
         chengyu = intent.getStringExtra("chengyu");
         String url = URLUtils.getChengyuurl(chengyu);
         loadData(url);
-        isExist = DBManager.isExistCyuInCollcyutb(chengyu);
+//        isExist = DBManager.isExistCyuInCollcyutb(chengyu);
         isCollect = isExist;
 
         setCollectIvStyle();
@@ -76,7 +76,7 @@ public class ChengyuInfoActivity extends BaseActivity {
 //        因数据源当中不包括成语本身，但是后期要插入数据库，所以需要保存这个成语
              cyBean.setChengyu(chengyu);
             // 插入到数据库当中
-            DBManager.insertCyToCyutb(cyBean);
+//            DBManager.insertCyToCyutb(cyBean);
             // 显示数据
             showDataToView(cyBean);
         }else{
@@ -87,10 +87,10 @@ public class ChengyuInfoActivity extends BaseActivity {
     @Override
     public void onError(Throwable ex, boolean isOnCallback) {
 //        获取数据库当中缓存的数据
-        ChengyuBean.ResultBean bean = DBManager.queryCyFromCyutb(chengyu);
-        if (bean!=null) {
-            showDataToView(bean);
-        }
+//        ChengyuBean.ResultBean bean = DBManager.queryCyFromCyutb(chengyu);
+//        if (bean!=null) {
+//            showDataToView(bean);
+//        }
     }
 
     /**
@@ -160,14 +160,14 @@ public class ChengyuInfoActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (isExist&&!isCollect) {
-            DBManager.deleteCyuToCollcyutb(chengyu);
-        }
-        if (!isExist&&isCollect) {
-            DBManager.insertCyuToCollcyutb(chengyu);
-        }
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        if (isExist&&!isCollect) {
+//            DBManager.deleteCyuToCollcyutb(chengyu);
+//        }
+//        if (!isExist&&isCollect) {
+//            DBManager.insertCyuToCollcyutb(chengyu);
+//        }
+//    }
 }
