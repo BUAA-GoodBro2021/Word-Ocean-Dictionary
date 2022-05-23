@@ -94,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
             int pageSize = Math.min(restCount, 48);
             int page = 1;
             int totalPage = (int)(Math.ceil((double)(totalCount) / 48));
-            while(pageSize > 0){
+            do{
                 StaticData.ListBean listBean = new StaticData.ListBean();
-                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize - 1;i++){
+                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize;i++){
                     listBean.getList().add(pinYinBeans.get(key).get(i));
                 }
                 listBean.setPage(page++);
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 listBeans.add(listBean);
                 restCount -= pageSize;
                 pageSize = Math.min(restCount, 48);
-            }
+            }while(pageSize > 0);
             StaticData.ziBeanPinYinMap.put(key, listBeans);
         }
         for(String key: buShouBeans.keySet()){
@@ -116,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
             int pageSize = Math.min(restCount, 48);
             int page = 1;
             int totalPage = (int)(Math.ceil((double)(totalCount) / 48));
-            while(pageSize > 0){
+            do{
                 StaticData.ListBean listBean = new StaticData.ListBean();
-                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize - 1;i++){
+                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize;i++){
                     listBean.getList().add(buShouBeans.get(key).get(i));
                 }
                 listBean.setPage(page++);
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 listBeans.add(listBean);
                 restCount -= pageSize;
                 pageSize = Math.min(restCount, 48);
-            }
+            }while(pageSize > 0);
             StaticData.ziBeanBuShouMap.put(key, listBeans);
         }
     }

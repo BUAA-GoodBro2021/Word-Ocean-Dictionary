@@ -59,7 +59,7 @@ public class SearchRightAdapter extends BaseAdapter {
         return convertView;
     }
 
-    class ViewHolder{
+    static class ViewHolder{
         TextView tv;
         public ViewHolder(View view){
             tv = view.findViewById(R.id.item_sgv_tv);

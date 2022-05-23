@@ -136,13 +136,13 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    class GroupViewHolder{
+    static class GroupViewHolder{
         TextView groupTv;
         public GroupViewHolder(View view){
             groupTv = view.findViewById(R.id.item_group_tv);
         }
     }
-    class ChildViewHolder{
+    static class ChildViewHolder{
         TextView childTv;
         public ChildViewHolder(View view){
             childTv = view.findViewById(R.id.item_child_tv);

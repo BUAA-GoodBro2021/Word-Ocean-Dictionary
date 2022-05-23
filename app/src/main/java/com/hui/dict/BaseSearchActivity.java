@@ -2,6 +2,7 @@ package com.hui.dict;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
@@ -38,11 +39,9 @@ public class BaseSearchActivity extends AppCompatActivity {
     List<ZiBean> gridDatas;
     private SearchRightAdapter gridAdapter;
 
-    int totalpage;   //总页数
+    int totalPage;   //总页数
     int page = 1;   //当前获取的页数
-    int pagesize = 48;  //默认一页获取48条数据
     String word = "";   //点击了左侧的哪个拼音或者部首
-    String url = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,14 +70,18 @@ public class BaseSearchActivity extends AppCompatActivity {
             @Override
             public void onRefresh(PullToRefreshBase<GridView> refreshView) {
 //                判断当前加载的页数，是否小于总页数
-                if(page<totalpage){
+                if(page < totalPage){
                     page++;
-                    List<ZiBean> list = new ArrayList<>();
+                    List<ZiBean> list;
+                    StaticData.ListBean listBean = new StaticData.ListBean();
                     if (type == CommonUtils.TYPE_PINYIN) {
-                        list = StaticData.ziBeanPinYinMap.get(word).get(page - 1).getList();
+                        listBean = StaticData.ziBeanPinYinMap.get(word).get(page - 1);
+
                     }else if (type == CommonUtils.TYPE_BUSHOU) {
-                        list = StaticData.ziBeanBuShouMap.get(word).get(page - 1).getList();
+                        listBean = StaticData.ziBeanBuShouMap.get(word).get(page - 1);
                     }
+                    list = listBean.getList();
+                    totalPage = listBean.getTotalPage();
                     refreshDataByGV(list);
                 }else{
                     pullGv.onRefreshComplete();  //不用加载数据  可以弹出Toast提示信息
@@ -143,7 +146,6 @@ public class BaseSearchActivity extends AppCompatActivity {
                     adapter.setSelectChildPos(selChildPos);
                 }
                 adapter.notifyDataSetInvalidated();   //数据没有改变，只是布局背景改变了
-                //获取数据信息
                 getDataAlterWord(type);
                 return false;
             }
@@ -156,7 +158,6 @@ public class BaseSearchActivity extends AppCompatActivity {
                 adapter.notifyDataSetInvalidated();
                 selGroupPos = groupPosition;
                 selChildPos = childPosition;
-                //网络加载右面GridView显示内容
                 getDataAlterWord(type);
                 return false;
             }
@@ -169,12 +170,17 @@ public class BaseSearchActivity extends AppCompatActivity {
         List<PinBuBean.ResultBean> groupList = childDatas.get(selGroupPos);  //获取选中组
             page = 1;
             PinBuBean.ResultBean bean = groupList.get(selChildPos);
-            List<ZiBean> list = new ArrayList<>();
+            List<ZiBean> list;
+            StaticData.ListBean listBean = new StaticData.ListBean();
             if (type == CommonUtils.TYPE_PINYIN) {
-                list = StaticData.ziBeanPinYinMap.get(word).get(page - 1).getList();
+                word = bean.getPinyin();
+                listBean = StaticData.ziBeanPinYinMap.get(word).get(page - 1);
             }else if (type == CommonUtils.TYPE_BUSHOU) {
-                list = StaticData.ziBeanBuShouMap.get(word).get(page - 1).getList();
+                word = bean.getBushou();
+                listBean = StaticData.ziBeanBuShouMap.get(word).get(page - 1);
             }
+            list = listBean.getList();
+            totalPage = listBean.getTotalPage();
             refreshDataByGV(list);
     }
 
@@ -191,7 +197,7 @@ public class BaseSearchActivity extends AppCompatActivity {
             PinBuBean pinBuBean = new Gson().fromJson(json, PinBuBean.class);
             List<PinBuBean.ResultBean> list = pinBuBean.getResult();
 //            整理数据
-            List<PinBuBean.ResultBean>grouplist = new ArrayList<>(); //声明每组包含的元素集合
+            List<PinBuBean.ResultBean> grouplist = new ArrayList<>(); //声明每组包含的元素集合
             for (int i = 0; i < list.size(); i++) {
                 PinBuBean.ResultBean bean = list.get(i);   // id,pinyin_key,pinyi
                 if (type == CommonUtils.TYPE_PINYIN) {
@@ -199,7 +205,7 @@ public class BaseSearchActivity extends AppCompatActivity {
                     if (!groupDatas.contains(pinyin_key)) {   //判断是否存在于分组的列表当中
                         groupDatas.add(pinyin_key);
 //                        说明上一个拼音的已经全部录入到grouplist当中了，可以将上一个拼音的集合添加到childDatas
-                        if (grouplist.size()>0) {
+                        if (grouplist.size() > 0) {
                             childDatas.add(grouplist);
                         }
 //                        既然是新的一组，就要创建一个对应的新的子列表
@@ -213,7 +219,7 @@ public class BaseSearchActivity extends AppCompatActivity {
                     if (!groupDatas.contains(bihua)) {
                         groupDatas.add(bihua);
 //                        新的一组，把上一组进行添加
-                        if (grouplist.size()>0) {
+                        if (grouplist.size() > 0) {
                             childDatas.add(grouplist);
                         }
 //                        新的一组，新创建子列表
@@ -226,7 +232,6 @@ public class BaseSearchActivity extends AppCompatActivity {
             }
 //            循环结束之后，最后一组并没有添加进去，所以需要手动添加
             childDatas.add(grouplist);
-
             adapter = new SearchLeftAdapter(this, groupDatas, childDatas, type);
             exLv.setAdapter(adapter);
 
