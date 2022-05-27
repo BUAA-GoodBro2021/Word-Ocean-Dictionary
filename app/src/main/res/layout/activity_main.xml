@@ -23,7 +23,8 @@
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:hint="@string/main_et_hint"
-                android:maxLength="1" />
+                android:inputType="textNoSuggestions"
+                android:maxLength="1"/>
             <ImageView
                 android:id="@+id/main_iv_search"
                 android:layout_width="20dp"

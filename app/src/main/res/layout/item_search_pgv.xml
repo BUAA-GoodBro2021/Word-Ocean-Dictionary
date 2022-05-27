@@ -10,7 +10,8 @@
         android:text="啊"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="@color/red"
-        android:textSize="30sp"
+        android:textColor="#130000"
+        android:textSize="28sp"
+        android:typeface="serif"
         android:background="@drawable/search_tv_bg"/>
 </LinearLayout>
