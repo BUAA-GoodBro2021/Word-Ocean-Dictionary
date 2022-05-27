@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/grey_f3f3f3">
+    android:background="@mipmap/bg_cat2">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -24,6 +24,7 @@
         style="@style/settingTvStyle"
         android:layout_marginTop="20dp"
         android:text="@string/setting_collect"
+        android:typeface="serif"
         android:onClick="onClick"
         android:drawableLeft="@mipmap/ic_soucang"/>
     <View
@@ -32,6 +33,7 @@
         android:id="@+id/setting_tv_feedback"
         style="@style/settingTvStyle"
         android:text="@string/setting_feedback"
+        android:typeface="serif"
         android:onClick="onClick"
         android:drawableLeft="@mipmap/mine_customer_service"/>
     <View
@@ -40,6 +42,7 @@
         android:id="@+id/setting_tv_good"
         style="@style/settingTvStyle"
         android:text="@string/setting_good"
+        android:typeface="serif"
         android:onClick="onClick"
         android:drawableLeft="@mipmap/mine_evaluate"/>
     <View
@@ -48,6 +51,7 @@
         android:id="@+id/setting_tv_share"
         style="@style/settingTvStyle"
         android:text="@string/setting_share"
+        android:typeface="serif"
         android:onClick="onClick"
         android:drawableLeft="@mipmap/mine_share"/>
     <View
@@ -56,6 +60,7 @@
         android:id="@+id/setting_tv_about"
         style="@style/settingTvStyle"
         android:text="@string/setting_about"
+        android:typeface="serif"
         android:onClick="onClick"
         android:drawableLeft="@mipmap/mine_about_us"/>
     <View
