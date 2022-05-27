@@ -16,4 +16,9 @@ Java大作业安卓开发——Word-Ocean-Dictionary(词海)
 
 ## Logo
 
+### APP图标
 ![词海](https://user-images.githubusercontent.com/89010482/170633535-ff815b68-c547-4ac3-be3c-b4a522655899.svg)
+
+### APP头部
+
+![词海](https://user-images.githubusercontent.com/89010482/170634143-e87cca48-75d9-4c7f-b900-cec1cf9f96cb.svg)
