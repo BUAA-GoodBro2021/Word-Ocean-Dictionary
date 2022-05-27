@@ -36,15 +36,16 @@
             android:background="@drawable/main_et_bg_all_2"
             android:hint="@string/chengyu_et_hint"
             android:maxLength="4" />
+
         <ImageView
             android:id="@+id/searchcy_iv_search"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
-            android:src="@mipmap/search"
-            android:onClick="onClick"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:onClick="onClick"
+            android:src="@mipmap/search" />
     </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
