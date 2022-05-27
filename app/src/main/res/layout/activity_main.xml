@@ -22,9 +22,11 @@
                 android:id="@+id/main_et"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
+                android:background="@null"
                 android:hint="@string/main_et_hint"
                 android:inputType="textNoSuggestions"
-                android:maxLength="1"/>
+                android:maxLength="1"
+                android:layout_marginTop="10dp"/>
             <ImageView
                 android:id="@+id/main_iv_search"
                 android:layout_width="20dp"
@@ -33,8 +35,7 @@
                 android:onClick="onClick"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginRight="20dp"/>
         </RelativeLayout>
 
         <ImageView
