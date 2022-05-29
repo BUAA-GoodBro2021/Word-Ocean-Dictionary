@@ -11,6 +11,7 @@ public class StaticData {
     public static PinBuBean buShouBean;
     public static Map<String, List<ListBean>> ziBeanPinYinMap = new HashMap<>();
     public static Map<String, List<ListBean>> ziBeanBuShouMap = new HashMap<>();
+    public static Map<String, ZiBean> ziBeanMap = new HashMap<>();
     public static class ListBean{
         private int page;
         private int pageSize;

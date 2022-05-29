@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         for(JsonElement json: jsonArray){
             ZiBean ziBean = gson.fromJson(json, ZiBean.class);
             ziBeans.add(ziBean);
+            StaticData.ziBeanMap.put(ziBean.getZi(), ziBean);
         }
         String pinYinList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_PINYIN);
         String buShouList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_BUSHOU);

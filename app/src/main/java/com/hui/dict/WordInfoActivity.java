@@ -12,18 +12,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.hui.dict.bean.StaticData;
 import com.hui.dict.bean.WordBean;
 //import com.hui.dict.db.DBManager;
+import com.hui.dict.bean.ZiBean;
 import com.hui.dict.utils.URLUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /*
 * 文字详情页面
 * */
-public class WordInfoActivity extends BaseActivity {
-    TextView ziTv, pyTv, wubiTv, bihuaTv, bushouTv, jsTv, xxjsTv;
+public class WordInfoActivity extends AppCompatActivity {
+    TextView ziTv, pyTv, bihuaTv, bushouTv, jsTv, xxjsTv;
     ListView jsLv;
     ImageView collectIv;
     String zi;
@@ -42,18 +46,17 @@ public class WordInfoActivity extends BaseActivity {
         // 接受上一个页面传递过来的对象
         Intent intent = getIntent();
         zi = intent.getStringExtra("zi");
-        String url = URLUtils.getWordurl(zi); // 拼接网址
+        ZiBean ziBean = StaticData.ziBeanMap.get(zi);
         initView();
         // 初始化ListView显示的数据源
         mDatas = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, R.layout.item_word_jslv, R.id.item_wordlv_tv, mDatas);
         jsLv.setAdapter(adapter);
-        // 加载网络数据
-        loadData(url);
+        notifyView(ziBean);
         // 调用判断是否已经收藏了的方法
         // isExist = DBManager.isExistZiInCollwordtb(zi);
-        isCollect = isExist; // 记录初始状态
-        setCollectIvStyle();
+//        isCollect = isExist; // 记录初始状态
+//        setCollectIvStyle();
     }
 
     /* 根据收藏的状态，改变星星的颜色 */
@@ -66,48 +69,23 @@ public class WordInfoActivity extends BaseActivity {
     }
 
     /**
-     * 表示获取数据成功时会调用的方法
-     */
-    @Override
-    public void onSuccess(String json) {
-        WordBean wordBean = new Gson().fromJson(json, WordBean.class);
-        WordBean.ResultBean resultBean = wordBean.getResult();
-        // 插入数据库
-        // DBManager.insertWordToWordtb(resultBean);
-        // 将数据显示在View控件上
-        notifyView(resultBean);
-    }
-
-    /**
      * @des 更新控件信息
      */
-    private void notifyView(WordBean.ResultBean resultBean) {
+    private void notifyView(ZiBean resultBean) {
         ziTv.setText(resultBean.getZi());
-        pyTv.setText(resultBean.getPinyin());
-        wubiTv.setText("五笔 : " + resultBean.getWubi());
-        bihuaTv.setText("笔画 : " + resultBean.getBihua());
-        bushouTv.setText("部首 : " + resultBean.getBushou());
-        jijie = resultBean.getJijie();
-        xiangjie = resultBean.getXiangjie();
+        pyTv.setText(resultBean.getPinyin().toString());
+        bihuaTv.setText("笔画 : " + resultBean.getZi_bihua());
+        bushouTv.setText("部首 : " + (resultBean.getBushou() == null ? "无部首" : resultBean.getBushou()));
+        jijie = Collections.singletonList(resultBean.getExplanation());
+        xiangjie = Collections.singletonList(resultBean.getExplanation());
         // 默认一进去，就显示基本解释
         mDatas.clear();
         mDatas.addAll(jijie);
         adapter.notifyDataSetChanged();
     }
 
-    /* 获取数据失败时，会调用的方法 */
-    @Override
-    public void onError(Throwable ex, boolean isOnCallback) {
-        // 联网失败，获取数据库当中字的信息
-        // WordBean.ResultBean bean = DBManager.queryWordFromWordtb(zi);
-        // if (bean!=null) {
-        // notifyView(bean);
-        // }
-    }
-
     private void initView() {
         ziTv = findViewById(R.id.word_tv_zi);
-        wubiTv = findViewById(R.id.word_tv_wubi);
         pyTv = findViewById(R.id.word_tv_pinyin);
         bihuaTv = findViewById(R.id.word_tv_bihua);
         bushouTv = findViewById(R.id.word_tv_bushou);

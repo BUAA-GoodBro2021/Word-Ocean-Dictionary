@@ -7,52 +7,52 @@
 7
 8    <uses-sdk
 9        android:minSdkVersion="21"
-9-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml
+9-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
 10        android:targetSdkVersion="32" />
-10-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml
+10-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml
 11
 12    <uses-permission android:name="android.permission.CAMERA" />
-12-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:7:5-64
-12-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:7:22-62
+12-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:7:5-64
+12-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:7:22-62
 13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-13-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:8:5-79
-13-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:8:22-77
+13-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:8:5-79
+13-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:8:22-77
 14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-14-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:9:5-80
-14-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:9:22-78
+14-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:9:5-80
+14-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:9:22-78
 15
 16    <uses-feature android:name="android.hardware.camera2.full" />
-16-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:10:5-65
-16-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:10:19-63
+16-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:10:5-65
+16-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:10:19-63
 17    <uses-feature android:name="android.hardware.camera" />
-17-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:11:5-59
-17-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:11:19-57
+17-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:11:5-59
+17-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:11:19-57
 18    <uses-feature android:name="android.hardware.camera.autofocus" />
-18-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:12:5-70
-18-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:12:19-67
+18-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:12:5-70
+18-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:12:19-67
 19
 20    <application
-20-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:14:5-25:19
+20-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:14:5-25:19
 21        android:allowBackup="true"
-21-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:14:18-44
+21-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:14:18-44
 22        android:icon="@mipmap/ic_launcher"
-22-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:16:18-52
+22-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:16:18-52
 23        android:label="@string/app_name"
-23-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:15:18-50
+23-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:15:18-50
 24        android:supportsRtl="true"
-24-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:17:18-44
+24-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:17:18-44
 25        android:theme="@style/AppTheme"
-25-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:19:18-49
+25-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:19:18-49
 26        android:vmSafeMode="true" >
-26-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:18:18-43
+26-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:18:18-43
 27        <activity
-27-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:21:9-23:85
+27-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:21:9-23:85
 28            android:name="com.baidu.ocr.ui.camera.CameraActivity"
-28-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:21:19-72
+28-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:21:19-72
 29            android:configChanges="screenSize|orientation"
-29-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:22:19-65
+29-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:22:19-65
 30            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
-30-->D:\ZQ\university\2\Second\oo\WordOcean\ocr_ui\src\main\AndroidManifest.xml:23:19-83
+30-->E:\Github\Word-Ocean-Dictionary\ocr_ui\src\main\AndroidManifest.xml:23:19-83
 31    </application>
 32
 33</manifest>

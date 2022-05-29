@@ -20,6 +20,7 @@ import com.hui.dict.bean.PinBuBean;
 import com.hui.dict.bean.StaticData;
 import com.hui.dict.bean.ZiBean;
 //import com.hui.dict.db.DBManager;
+import com.hui.dict.db.DBManager;
 import com.hui.dict.utils.AssetsUtils;
 import com.hui.dict.utils.CommonUtils;
 
@@ -106,14 +107,14 @@ public class BaseSearchActivity extends AppCompatActivity {
 //    /**
 //     * @des 将网络数据保存到数据库当中，为了避免ANR，就使用子线程，完成操作
 //     * */
-//    public void writeDBByThread(final List<ZiBean> list) {
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                DBManager.insertListToPywordtb(list);
-//            }
-//        }).start();
-//    }
+    public void writeDBByThread(final List<ZiBean> list) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DBManager.insertListToPywordtb(list);
+            }
+        }).start();
+    }
     /**
      * 更新GridView当中的数据，提示适配器重新加载
      * */
