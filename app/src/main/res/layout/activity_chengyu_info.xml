@@ -74,26 +74,9 @@
                 android:text="拼音:" />
 
             <TextView
+                android:id="@+id/cyinfo_tv_sx"
                 style="@style/chengyuTvStyle2"
-                android:text="同义词 :" />
-
-            <com.hui.dict.utils.MyGridView
-                android:id="@+id/cyinfo_gv_tongyi"
-                android:layout_width="390dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:numColumns="5" />
-
-            <TextView
-                style="@style/chengyuTvStyle2"
-                android:text="反义词 :" />
-
-            <com.hui.dict.utils.MyGridView
-                android:id="@+id/cyinfo_gv_fanyi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:numColumns="5" />
+                android:text="缩写:" />
 
             <!-- 成语解释的相关内容-->
             <RelativeLayout
@@ -171,53 +154,6 @@
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@id/cyinfo_tv4"
                     android:text="" />
-
-                <TextView
-                    android:id="@+id/cyinfo_tv5"
-                    style="@style/chengyuTvStyle3"
-                    android:layout_below="@id/cyinfo_tv_yufa"
-                    android:text="引证" />
-
-                <TextView
-                    android:id="@+id/cyinfo_tv_yinzheng"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_yufa"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/cyinfo_tv5"
-                    android:text="" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="#99FFFFFF">
-
-                <TextView
-                    android:id="@+id/cyinfo_tv6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="英汉互译" />
-
-                <View
-                    android:id="@+id/cyinfo_line2"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_below="@id/cyinfo_tv6"
-                    android:background="@color/grey_f3f3f3" />
-
-                <TextView
-                    android:id="@+id/cyinfo_tv_yinghan"
-                    style="@style/chengyuTvStyle2"
-                    android:layout_below="@id/cyinfo_line2"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

@@ -17,14 +17,6 @@ public class ZiBean {
     private List<String> pinyin;
     private List<String> pinyin_origin;
 
-    public ZiBean(String id, String zi, final String py, String pinyin, String bushou) {
-        this.id = Integer.parseInt(id);
-        this.zi = zi;
-        this.pinyin_origin = Collections.singletonList(py);
-        this.pinyin = Collections.singletonList(pinyin);
-        this.bushou = bushou;
-    }
-
     @NonNull
     @Override
     public String toString() {

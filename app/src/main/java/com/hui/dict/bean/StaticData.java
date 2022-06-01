@@ -7,11 +7,13 @@ import java.util.Map;
 
 public class StaticData {
     public static List<ZiBean> ziBeans = new ArrayList<>();
+    public static List<ChengyuBean> chengyuBeans = new ArrayList<>();
     public static PinBuBean pinYinBean;
     public static PinBuBean buShouBean;
     public static Map<String, List<ListBean>> ziBeanPinYinMap = new HashMap<>();
     public static Map<String, List<ListBean>> ziBeanBuShouMap = new HashMap<>();
     public static Map<String, ZiBean> ziBeanMap = new HashMap<>();
+    public static Map<String, ChengyuBean> chengyuBeanMap = new HashMap<>();
     public static class ListBean{
         private int page;
         private int pageSize;

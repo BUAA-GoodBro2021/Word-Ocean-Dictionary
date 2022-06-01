@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.hui.dict.bean.ChengyuBean;
 import com.hui.dict.bean.PinBuBean;
 import com.hui.dict.bean.StaticData;
 import com.hui.dict.bean.TuWenBean;
@@ -54,15 +54,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void initList() {
         String ziList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_ZI);
-        JsonArray jsonArray = JsonParser.parseString(ziList).getAsJsonArray();
+        JsonArray jsonZiArray = JsonParser.parseString(ziList).getAsJsonArray();
+        String chengyuList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_CHENGYU);
+        JsonArray jsonChengyuArray = JsonParser.parseString(chengyuList).getAsJsonArray();
         Gson gson = new Gson();
         List<ZiBean> ziBeans = new ArrayList<>();
+        List<ChengyuBean> chengyuBeans = new ArrayList<>();
         Map<String, List<ZiBean>> pinYinBeans = new HashMap<>();
         Map<String, List<ZiBean>> buShouBeans = new HashMap<>();
-        for(JsonElement json: jsonArray){
+        for(JsonElement json: jsonZiArray){
             ZiBean ziBean = gson.fromJson(json, ZiBean.class);
             ziBeans.add(ziBean);
             StaticData.ziBeanMap.put(ziBean.getZi(), ziBean);
+        }
+        for(JsonElement json: jsonChengyuArray){
+            ChengyuBean chengyuBean = gson.fromJson(json, ChengyuBean.class);
+            chengyuBeans.add(chengyuBean);
+            StaticData.chengyuBeanMap.put(chengyuBean.getWord(), chengyuBean);
         }
         String pinYinList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_PINYIN);
         String buShouList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_BUSHOU);
@@ -79,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             buShouBeans.put(resultBean.getBushou(), new ArrayList<ZiBean>());
         }
         StaticData.ziBeans = ziBeans;
+        StaticData.chengyuBeans = chengyuBeans;
         for(ZiBean ziBean: StaticData.ziBeans){
             for(String pinyin: ziBean.getPinyin_origin()){
                 pinYinBeans.get(pinyin).add(ziBean);

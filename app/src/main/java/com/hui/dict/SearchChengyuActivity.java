@@ -8,7 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 //import com.hui.dict.db.DBManager;
+import com.hui.dict.bean.ChengyuBean;
+import com.hui.dict.bean.StaticData;
+
 import java.util.ArrayList;
 import java.util.List;
 public class SearchChengyuActivity extends AppCompatActivity {
@@ -76,6 +80,12 @@ public class SearchChengyuActivity extends AppCompatActivity {
     private void startPage(String text) {
         Intent intent = new Intent(this, ChengyuInfoActivity.class);
         intent.putExtra("chengyu",text);
-        startActivity(intent);
+        ChengyuBean chengyuBean = StaticData.chengyuBeanMap.get(text);
+        if(chengyuBean != null){
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "无此成语！", Toast.LENGTH_LONG).show();
+        }
     }
 }
