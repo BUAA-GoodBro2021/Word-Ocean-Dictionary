@@ -16,6 +16,7 @@ import android.widget.GridView;
 import com.hui.dict.ChengyuInfoActivity;
 import com.hui.dict.R;
 import com.hui.dict.WordInfoActivity;
+import com.hui.dict.db.DBManager;
 //import com.hui.dict.db.DBManager;
 
 import java.util.ArrayList;
@@ -27,13 +28,13 @@ import java.util.List;
 public class ZiFragment extends Fragment {
     private String type;
     GridView gv;
-    List<String>mDatas;
+    List<String> mDatas;
     private ArrayAdapter<String> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_zi, container, false);
+        View view = inflater.inflate(R.layout.fragment_zi, container, false);
         Bundle bundle = getArguments();
         type = bundle.getString("type");  //获取当前Fragment显示的数据类型
         gv = view.findViewById(R.id.zifrag_gv);
@@ -52,15 +53,16 @@ public class ZiFragment extends Fragment {
     }
 
     private void loadData() {
-        List<String>list;
+        List<String> list;
         mDatas.clear();
-//        if (type.equals("汉字")) {
-//            list = DBManager.queryAllInCollwordtb();
-//        }else{
-//            list = DBManager.queryAllCyuInCollcyutb();
-//        }
-//        mDatas.addAll(list);
-        adapter.notifyDataSetChanged();;
+        if (type.equals("汉字")) {
+            list = DBManager.queryZiCollection();
+        } else {
+            list = DBManager.queryChengyuCollection();
+        }
+        mDatas.addAll(list);
+        adapter.notifyDataSetChanged();
+        ;
     }
 
     private void setGVListener() {
@@ -70,12 +72,12 @@ public class ZiFragment extends Fragment {
                 if (type.equals("汉字")) {
                     String zi = mDatas.get(position);
                     Intent intent = new Intent(getActivity(), WordInfoActivity.class);
-                    intent.putExtra("zi",zi);
+                    intent.putExtra("zi", zi);
                     startActivity(intent);
-                }else{
+                } else {
                     String cy = mDatas.get(position);
                     Intent intent = new Intent(getActivity(), ChengyuInfoActivity.class);
-                    intent.putExtra("chengyu",cy);
+                    intent.putExtra("chengyu", cy);
                     startActivity(intent);
                 }
             }

@@ -104,7 +104,7 @@ public class ChengyuInfoActivity extends AppCompatActivity {
             DBManager.deleteChengyuCollection(chengyu);
         }
         if (!isExistCollection && isCollect) {
-            DBManager.deleteChengyuCollection(chengyu);
+            DBManager.insertChengyuCollection(chengyu);
         }
     }
 }

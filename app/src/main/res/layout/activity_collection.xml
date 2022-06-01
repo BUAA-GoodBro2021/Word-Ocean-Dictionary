@@ -15,9 +15,10 @@
             android:layout_marginLeft="10dp"
             android:onClick="onClick"
             android:src="@mipmap/ic_back"/>
+
         <TextView
             style="@style/titleTvStyle"
-            android:text="@string/setting_collect"/>
+            android:text="@string/setting_collect" />
     </RelativeLayout>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/collect_tabs"
