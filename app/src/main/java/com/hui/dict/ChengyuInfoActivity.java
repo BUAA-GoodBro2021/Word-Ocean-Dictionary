@@ -4,23 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.hui.dict.bean.ChengyuBean;
 //import com.hui.dict.db.DBManager;
 import com.hui.dict.bean.StaticData;
-import com.hui.dict.utils.MyGridView;
-import com.hui.dict.utils.URLUtils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.hui.dict.db.DBManager;
 
 public class ChengyuInfoActivity extends AppCompatActivity {
     TextView ziTv1, ziTv2, ziTv3, ziTv4, pyTv, jsTv, fromTv, exampleTv, yufaTv, suoxieTv;
@@ -28,7 +19,8 @@ public class ChengyuInfoActivity extends AppCompatActivity {
     private String chengyu;
     // 设置标志位，表示汉字是否被收藏
     boolean isCollect = false;
-    boolean isExist = false; // 判断这个汉字是否已经存在
+    boolean isExistCollection = false; // 判断这个成语是否已经存在于收藏表
+    boolean isExistHistory = false; // 判断这个成语是否已经存在于历史表
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +32,13 @@ public class ChengyuInfoActivity extends AppCompatActivity {
         chengyu = intent.getStringExtra("chengyu");
         ChengyuBean chengyuBean = StaticData.chengyuBeanMap.get(chengyu);
         showDataToView(chengyuBean);
-        // isExist = DBManager.isExistCyuInCollcyutb(chengyu);
-        isCollect = isExist;
-
+        isExistCollection = DBManager.isChengyuExistCollection(chengyu);
+        isExistHistory = DBManager.isChengyuExistHistory(chengyu);
+        if(isExistHistory){
+            DBManager.deleteChengyuHistory(chengyu);
+        }
+        DBManager.insertChengyuHistory(chengyu);
+        isCollect = isExistCollection;
         setCollectIvStyle();
     }
 
@@ -101,14 +97,14 @@ public class ChengyuInfoActivity extends AppCompatActivity {
         }
     }
 
-    // @Override
-    // protected void onDestroy() {
-    // super.onDestroy();
-    // if (isExist&&!isCollect) {
-    // DBManager.deleteCyuToCollcyutb(chengyu);
-    // }
-    // if (!isExist&&isCollect) {
-    // DBManager.insertCyuToCollcyutb(chengyu);
-    // }
-    // }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isExistCollection && !isCollect) {
+            DBManager.deleteChengyuCollection(chengyu);
+        }
+        if (!isExistCollection && isCollect) {
+            DBManager.deleteChengyuCollection(chengyu);
+        }
+    }
 }

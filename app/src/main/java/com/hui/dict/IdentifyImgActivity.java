@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class IdentifyImgActivity extends AppCompatActivity {
     GridView gv;
-    ArrayList<String>mDatas;
+    ArrayList<String> mDatas;
     private ArrayAdapter<String> adapter;
 
     @Override
@@ -35,7 +35,7 @@ public class IdentifyImgActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String word = mDatas.get(position);
                 Intent intent = new Intent(IdentifyImgActivity.this, WordInfoActivity.class);
-                intent.putExtra("zi",word);
+                intent.putExtra("zi", word);
                 startActivity(intent);
             }
         });

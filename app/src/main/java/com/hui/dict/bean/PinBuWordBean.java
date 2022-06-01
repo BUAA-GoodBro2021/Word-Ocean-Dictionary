@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 拼音查询，部首查询，右侧的GridView对应的数据源
- * */
+ */
 public class PinBuWordBean {
 
     /**

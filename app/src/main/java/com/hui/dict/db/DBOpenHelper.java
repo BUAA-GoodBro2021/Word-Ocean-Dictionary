@@ -3,36 +3,33 @@ package com.hui.dict.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.hui.dict.utils.CommonUtils;
+
 public class DBOpenHelper extends SQLiteOpenHelper {
     public DBOpenHelper(@Nullable Context context) {
-        super(context, "dict.db", null, 1);
+        super(context, "word_ocean.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table pywordtb(_id integer primary key autoincrement,id varchar(20),zi varchar(4) not null," +
-                "py varchar(10),pinyin varchar(10),bushou varchar(4))";
+        String sql;
+        // 创建汉字历史记录
+        sql = "create table if not exists " + CommonUtils.TABLE_ZI_HISTORY + "(id integer primary key autoincrement,zi varchar(4) not null)";
+        Log.i("***********************", "*******************");
         db.execSQL(sql);
-//      创建存储文字详情的表格
-        sql = "create table wordtb(_id integer primary key autoincrement,id varchar(20),zi varchar(4) not null,py varchar(10),"
-                + "pinyin varchar(10),bushou varchar(4),jijie text,xiangjie text)";
+        // 创建成语历史记录
+        sql = "create table if not exists " + CommonUtils.TABLE_CHENGYU_HISTORY + "(id integer primary key autoincrement,chengyu varchar(16) not null)";
         db.execSQL(sql);
-        //存储成语的表
-        sql = "create table cyutb(_id  integer primary key autoincrement,chengyu varchar(10) not null,bushou varchar(4)," +
-        "head varchar(4),pinyin varchar(30),chengyujs varchar(100),from_ text,example text,yufa varchar(30),ciyujs text," +
-                "yinzhengjs text,tongyi text,fanyi text)";
-        db.execSQL(sql);
-
-//        创建收藏汉字的表
-        sql = "create table collwordtb(_id integer primary key autoincrement,zi varchar(4) not null)";
+        // 创建收藏汉字的表
+        sql = "create table if not exists " + CommonUtils.TABLE_ZI_COLLECTION + "(id integer primary key autoincrement,zi varchar(4) not null)";
         db.execSQL(sql);
         // 创建收藏成语的表
-        sql = "create table collcyutb(_id integer primary key autoincrement,chengyu varchar(4) not null)";
+        sql = "create table if not exists " + CommonUtils.TABLE_CHENGYU_COLLECTION + "(id integer primary key autoincrement,chengyu varchar(16) not null)";
         db.execSQL(sql);
-
     }
 
     @Override

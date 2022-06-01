@@ -14,7 +14,8 @@ public class StaticData {
     public static Map<String, List<ListBean>> ziBeanBuShouMap = new HashMap<>();
     public static Map<String, ZiBean> ziBeanMap = new HashMap<>();
     public static Map<String, ChengyuBean> chengyuBeanMap = new HashMap<>();
-    public static class ListBean{
+
+    public static class ListBean {
         private int page;
         private int pageSize;
         private int totalPage;

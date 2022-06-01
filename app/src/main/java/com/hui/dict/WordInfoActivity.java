@@ -11,21 +11,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.hui.dict.bean.StaticData;
-import com.hui.dict.bean.WordBean;
 //import com.hui.dict.db.DBManager;
 import com.hui.dict.bean.ZiBean;
-import com.hui.dict.utils.URLUtils;
+import com.hui.dict.db.DBManager;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 /*
-* 文字详情页面
-* */
+ * 文字详情页面
+ * */
 public class WordInfoActivity extends AppCompatActivity {
     TextView ziTv, pyTv, bihuaTv, bushouTv, jsTv, xxjsTv;
     ListView jsLv;
@@ -37,7 +34,8 @@ public class WordInfoActivity extends AppCompatActivity {
     private List<String> xiangjie;
     // 设置标志位，表示汉字是否被收藏
     boolean isCollect = false;
-    boolean isExist = false; // 判断这个汉字是否已经存在
+    boolean isExistCollection = false; // 判断这个汉字是否已经存在于收藏表
+    boolean isExistHistory = false; // 判断这个汉字是否已经存在于历史表
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +52,14 @@ public class WordInfoActivity extends AppCompatActivity {
         jsLv.setAdapter(adapter);
         notifyView(ziBean);
         // 调用判断是否已经收藏了的方法
-        // isExist = DBManager.isExistZiInCollwordtb(zi);
-//        isCollect = isExist; // 记录初始状态
-//        setCollectIvStyle();
+        isExistCollection = DBManager.isZiExistCollection(zi);
+        isExistHistory = DBManager.isZiExistHistory(zi);
+        isCollect = isExistCollection; // 记录初始状态
+        if(isExistHistory){
+            DBManager.deleteZiHistory(zi);
+        }
+        DBManager.insertZiHistory(zi);
+        setCollectIvStyle();
     }
 
     /* 根据收藏的状态，改变星星的颜色 */
@@ -129,13 +132,13 @@ public class WordInfoActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // if (isExist&&!isCollect) {
-        //// 原来数据收藏，后来不想收藏了，需要删除
-        // DBManager.deleteZiToCollwordtb(zi);
-        // }
-        // if (!isExist&&isCollect) {
-        //// 原来不存在，后来需要收藏，要插入数据
-        // DBManager.insertZiToCollwordtb(zi);
-        // }
+        if (isExistCollection && !isCollect) {
+            // 原来数据收藏，后来不想收藏了，需要删除
+            DBManager.deleteZiCollection(zi);
+        }
+        if (!isExistCollection && isCollect) {
+            // 原来不存在，后来需要收藏，要插入数据
+            DBManager.insertZiCollection(zi);
+        }
     }
 }

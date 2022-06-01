@@ -1,4 +1,5 @@
 package com.hui.dict;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -37,11 +38,12 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    TextView pyTv,bsTv,cyuTv,twenTv,juziTv;
+    TextView pyTv, bsTv, cyuTv, twenTv, juziTv;
     EditText ziEt;
     private boolean hasGotToken = false;
     private static final int REQUEST_CODE_GENERAL_BASIC = 106;
     private AlertDialog.Builder alertDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
         List<ChengyuBean> chengyuBeans = new ArrayList<>();
         Map<String, List<ZiBean>> pinYinBeans = new HashMap<>();
         Map<String, List<ZiBean>> buShouBeans = new HashMap<>();
-        for(JsonElement json: jsonZiArray){
+        for (JsonElement json : jsonZiArray) {
             ZiBean ziBean = gson.fromJson(json, ZiBean.class);
             ziBeans.add(ziBean);
             StaticData.ziBeanMap.put(ziBean.getZi(), ziBean);
         }
-        for(JsonElement json: jsonChengyuArray){
+        for (JsonElement json : jsonChengyuArray) {
             ChengyuBean chengyuBean = gson.fromJson(json, ChengyuBean.class);
             chengyuBeans.add(chengyuBean);
             StaticData.chengyuBeanMap.put(chengyuBean.getWord(), chengyuBean);
@@ -80,33 +82,33 @@ public class MainActivity extends AppCompatActivity {
         StaticData.buShouBean = buShouBean;
         StaticData.ziBeanPinYinMap = new HashMap<>();
         StaticData.ziBeanBuShouMap = new HashMap<>();
-        for(PinBuBean.ResultBean resultBean: StaticData.pinYinBean.getResult()){
+        for (PinBuBean.ResultBean resultBean : StaticData.pinYinBean.getResult()) {
             pinYinBeans.put(resultBean.getPinyin(), new ArrayList<ZiBean>());
         }
-        for(PinBuBean.ResultBean resultBean: StaticData.buShouBean.getResult()){
+        for (PinBuBean.ResultBean resultBean : StaticData.buShouBean.getResult()) {
             buShouBeans.put(resultBean.getBushou(), new ArrayList<ZiBean>());
         }
         StaticData.ziBeans = ziBeans;
         StaticData.chengyuBeans = chengyuBeans;
-        for(ZiBean ziBean: StaticData.ziBeans){
-            for(String pinyin: ziBean.getPinyin_origin()){
+        for (ZiBean ziBean : StaticData.ziBeans) {
+            for (String pinyin : ziBean.getPinyin_origin()) {
                 pinYinBeans.get(pinyin).add(ziBean);
             }
             String bushou = ziBean.getBushou();
-            if(bushou != null){
+            if (bushou != null) {
                 buShouBeans.get(bushou).add(ziBean);
             }
         }
-        for(String key: pinYinBeans.keySet()){
+        for (String key : pinYinBeans.keySet()) {
             List<StaticData.ListBean> listBeans = new ArrayList<>();
             int totalCount = pinYinBeans.get(key).size();
             int restCount = totalCount;
             int pageSize = Math.min(restCount, 48);
             int page = 1;
-            int totalPage = (int)(Math.ceil((double)(totalCount) / 48));
-            do{
+            int totalPage = (int) (Math.ceil((double) (totalCount) / 48));
+            do {
                 StaticData.ListBean listBean = new StaticData.ListBean();
-                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize;i++){
+                for (int i = (page - 1) * 48; i < (page - 1) * 48 + pageSize; i++) {
                     listBean.getList().add(pinYinBeans.get(key).get(i));
                 }
                 listBean.setPage(page++);
@@ -116,19 +118,19 @@ public class MainActivity extends AppCompatActivity {
                 listBeans.add(listBean);
                 restCount -= pageSize;
                 pageSize = Math.min(restCount, 48);
-            }while(pageSize > 0);
+            } while (pageSize > 0);
             StaticData.ziBeanPinYinMap.put(key, listBeans);
         }
-        for(String key: buShouBeans.keySet()){
+        for (String key : buShouBeans.keySet()) {
             List<StaticData.ListBean> listBeans = new ArrayList<>();
             int totalCount = buShouBeans.get(key).size();
             int restCount = totalCount;
             int pageSize = Math.min(restCount, 48);
             int page = 1;
-            int totalPage = (int)(Math.ceil((double)(totalCount) / 48));
-            do{
+            int totalPage = (int) (Math.ceil((double) (totalCount) / 48));
+            do {
                 StaticData.ListBean listBean = new StaticData.ListBean();
-                for(int i = (page - 1) * 48;i < (page - 1) * 48 + pageSize;i++){
+                for (int i = (page - 1) * 48; i < (page - 1) * 48 + pageSize; i++) {
                     listBean.getList().add(buShouBeans.get(key).get(i));
                 }
                 listBean.setPage(page++);
@@ -138,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 listBeans.add(listBean);
                 restCount -= pageSize;
                 pageSize = Math.min(restCount, 48);
-            }while(pageSize > 0);
+            } while (pageSize > 0);
             StaticData.ziBeanBuShouMap.put(key, listBeans);
         }
     }
@@ -161,12 +163,13 @@ public class MainActivity extends AppCompatActivity {
                 String token = result.getAccessToken();
                 hasGotToken = true;
             }
+
             @Override
             public void onError(OCRError error) {
                 error.printStackTrace();
                 alertText("AK，SK方式获取token失败", error.getMessage());
             }
-        }, getApplicationContext(),  "MSaY1m8CryxI44ILaMu3e76H", "iqZmCIIWOwTKCrsQP8h7ps54yOS4KSXc");
+        }, getApplicationContext(), "MSaY1m8CryxI44ILaMu3e76H", "iqZmCIIWOwTKCrsQP8h7ps54yOS4KSXc");
     }
 
     private void alertText(final String title, final String message) {
@@ -180,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // 识别成功回调，通用文字识别
@@ -230,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
         // 释放内存资源
         OCR.getInstance(this).release();
     }
+
     private void initView() {
         pyTv = findViewById(R.id.main_tv_pinyin);
         bsTv = findViewById(R.id.main_tv_bushou);
@@ -243,27 +248,27 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.main_iv_setting:
-                intent.setClass(this,SettingActivity.class);
+                intent.setClass(this, SettingActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_iv_search:
                 String text = ziEt.getText().toString();
                 if (!TextUtils.isEmpty(text)) {
-                    intent.setClass(this,WordInfoActivity.class);
-                    intent.putExtra("zi",text);
+                    intent.setClass(this, WordInfoActivity.class);
+                    intent.putExtra("zi", text);
                     startActivity(intent);
                 }
                 break;
             case R.id.main_tv_pinyin:
-                intent.setClass(this,SearchPinyinActivity.class);
+                intent.setClass(this, SearchPinyinActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_tv_bushou:
-                intent.setClass(this,SearchBuShouActivity.class);
+                intent.setClass(this, SearchBuShouActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_tv_chengyu:
-                intent.setClass(this,SearchChengyuActivity.class);
+                intent.setClass(this, SearchChengyuActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_tv_tuwen:

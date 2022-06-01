@@ -45,7 +45,7 @@ public class SettingActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         String msg = "想随时查找汉字和成语详细内容么？快来下载中华字典APP吧！";
-        intent.putExtra(Intent.EXTRA_TEXT,msg);
-        startActivity(Intent.createChooser(intent,"分享到...."));
+        intent.putExtra(Intent.EXTRA_TEXT, msg);
+        startActivity(Intent.createChooser(intent, "分享到...."));
     }
 }

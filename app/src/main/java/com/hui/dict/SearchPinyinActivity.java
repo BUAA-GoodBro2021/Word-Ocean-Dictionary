@@ -11,10 +11,11 @@ import java.util.List;
 public class SearchPinyinActivity extends BaseSearchActivity {
 
     String url;   //获取指定拼音对应的网址
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData(CommonUtils.FILE_PINYIN,CommonUtils.TYPE_PINYIN);
+        initData(CommonUtils.FILE_PINYIN, CommonUtils.TYPE_PINYIN);
         setExLvListener(CommonUtils.TYPE_PINYIN);
         exLv.expandGroup(0);   //默认展开第一组
         word = "a";     //默认进去时获取的是第一个 a

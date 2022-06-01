@@ -17,8 +17,9 @@ import java.util.List;
 public class CollectionActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager collectVp;
-    String []titles = {"汉字","成语"};
-    List<Fragment>mDatas;
+    String[] titles = {"汉字", "成语"};
+    List<Fragment> mDatas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +28,14 @@ public class CollectionActivity extends AppCompatActivity {
         collectVp = findViewById(R.id.collect_vp);
         initPager();
     }
+
     /* 初始化ViewPager页面的操作*/
     private void initPager() {
         mDatas = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
             Fragment frag = new ZiFragment();
             Bundle bundle = new Bundle();
-            bundle.putString("type",titles[i]);
+            bundle.putString("type", titles[i]);
             frag.setArguments(bundle);
             mDatas.add(frag);
         }

@@ -1,4 +1,5 @@
 package com.hui.dict;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -43,6 +44,7 @@ public class BaseSearchActivity extends AppCompatActivity {
     int totalPage;   //总页数
     int page = 1;   //当前获取的页数
     String word = "";   //点击了左侧的哪个拼音或者部首
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +58,15 @@ public class BaseSearchActivity extends AppCompatActivity {
 
     /**
      * 初始化GridView的数据源
-     * */
+     */
     public void initGridDatas() {
         gridDatas = new ArrayList<>();
 //        设置适配器
         gridAdapter = new SearchRightAdapter(this, gridDatas);
         pullGv.setAdapter(gridAdapter);
     }
-//    设置GridView的监听器
+
+    //    设置GridView的监听器
     public void setGVListener(final int type) {
 //        上拉加载的监听器
         pullGv.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
@@ -71,20 +74,20 @@ public class BaseSearchActivity extends AppCompatActivity {
             @Override
             public void onRefresh(PullToRefreshBase<GridView> refreshView) {
 //                判断当前加载的页数，是否小于总页数
-                if(page < totalPage){
+                if (page < totalPage) {
                     page++;
                     List<ZiBean> list;
                     StaticData.ListBean listBean = new StaticData.ListBean();
                     if (type == CommonUtils.TYPE_PINYIN) {
                         listBean = StaticData.ziBeanPinYinMap.get(word).get(page - 1);
 
-                    }else if (type == CommonUtils.TYPE_BUSHOU) {
+                    } else if (type == CommonUtils.TYPE_BUSHOU) {
                         listBean = StaticData.ziBeanBuShouMap.get(word).get(page - 1);
                     }
                     list = listBean.getList();
                     totalPage = listBean.getTotalPage();
                     refreshDataByGV(list);
-                }else{
+                } else {
                     pullGv.onRefreshComplete();  //不用加载数据  可以弹出Toast提示信息
                 }
             }
@@ -97,7 +100,7 @@ public class BaseSearchActivity extends AppCompatActivity {
                 ZiBean bean = gridDatas.get(position);
                 String zi = bean.getZi();
                 Intent intent = new Intent(getBaseContext(), WordInfoActivity.class);
-                intent.putExtra("zi",zi);
+                intent.putExtra("zi", zi);
                 startActivity(intent);
             }
         });
@@ -115,15 +118,16 @@ public class BaseSearchActivity extends AppCompatActivity {
 //            }
 //        }).start();
 //    }
+
     /**
      * 更新GridView当中的数据，提示适配器重新加载
-     * */
+     */
     public void refreshDataByGV(List<ZiBean> list) {
         if (page == 1) {   //加载了新的拼音或者部首对应的集合
             gridDatas.clear();
             gridDatas.addAll(list);
             gridAdapter.notifyDataSetChanged();
-        }else{   //进行上拉加载新的一页，获取到的数据，保留原来的数据
+        } else {   //进行上拉加载新的一页，获取到的数据，保留原来的数据
             gridDatas.addAll(list);
             gridAdapter.notifyDataSetChanged();
             //停止显示加载条
@@ -132,8 +136,8 @@ public class BaseSearchActivity extends AppCompatActivity {
     }
 
     /**
-     *  设置ExpandListView的监听方法
-     * */
+     * 设置ExpandListView的监听方法
+     */
     public void setExLvListener(final int type) {
         exLv.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
@@ -142,7 +146,7 @@ public class BaseSearchActivity extends AppCompatActivity {
 //                获取被点击位置的内容
                 selGroupPos = groupPosition;
                 int groupSize = childDatas.get(selGroupPos).size();
-                if (groupSize <= selChildPos){
+                if (groupSize <= selChildPos) {
                     selChildPos = groupSize - 1;
                     adapter.setSelectChildPos(selChildPos);
                 }
@@ -164,28 +168,29 @@ public class BaseSearchActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * 改变了左边的选中，从网上获取对应选中的结果，显示在右边
-     * */
+     */
     private void getDataAlterWord(int type) {
         List<PinBuBean.ResultBean> groupList = childDatas.get(selGroupPos);  //获取选中组
-            page = 1;
-            PinBuBean.ResultBean bean = groupList.get(selChildPos);
-            List<ZiBean> list;
-            StaticData.ListBean listBean = new StaticData.ListBean();
-            if (type == CommonUtils.TYPE_PINYIN) {
-                word = bean.getPinyin();
-                listBean = StaticData.ziBeanPinYinMap.get(word).get(page - 1);
-            }else if (type == CommonUtils.TYPE_BUSHOU) {
-                word = bean.getBushou();
-                listBean = StaticData.ziBeanBuShouMap.get(word).get(page - 1);
-            }
-            list = listBean.getList();
-            totalPage = listBean.getTotalPage();
-            refreshDataByGV(list);
+        page = 1;
+        PinBuBean.ResultBean bean = groupList.get(selChildPos);
+        List<ZiBean> list;
+        StaticData.ListBean listBean = new StaticData.ListBean();
+        if (type == CommonUtils.TYPE_PINYIN) {
+            word = bean.getPinyin();
+            listBean = StaticData.ziBeanPinYinMap.get(word).get(page - 1);
+        } else if (type == CommonUtils.TYPE_BUSHOU) {
+            word = bean.getBushou();
+            listBean = StaticData.ziBeanBuShouMap.get(word).get(page - 1);
+        }
+        list = listBean.getList();
+        totalPage = listBean.getTotalPage();
+        refreshDataByGV(list);
     }
 
-    public void initData(String assetsName,int type) {
+    public void initData(String assetsName, int type) {
         /**
          * 读取Assets文件夹昂中的数据，使用Gson解析，将数据分组存储到二维列表当中
          * @param assetsName 文件名称
@@ -212,10 +217,10 @@ public class BaseSearchActivity extends AppCompatActivity {
 //                        既然是新的一组，就要创建一个对应的新的子列表
                         grouplist = new ArrayList<>();
                         grouplist.add(bean);
-                    }else{
+                    } else {
                         grouplist.add(bean);  //大写字母存在，说明还在当前这组当中，可以直接添加
                     }
-                }else if (type==CommonUtils.TYPE_BUSHOU) {
+                } else if (type == CommonUtils.TYPE_BUSHOU) {
                     String bihua = bean.getBihua();
                     if (!groupDatas.contains(bihua)) {
                         groupDatas.add(bihua);
@@ -226,7 +231,7 @@ public class BaseSearchActivity extends AppCompatActivity {
 //                        新的一组，新创建子列表
                         grouplist = new ArrayList<>();
                         grouplist.add(bean);
-                    }else{
+                    } else {
                         grouplist.add(bean);//当前笔画存在，就不用向组当中添加了
                     }
                 }

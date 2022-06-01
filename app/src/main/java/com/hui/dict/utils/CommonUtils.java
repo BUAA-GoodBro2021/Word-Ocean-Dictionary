@@ -9,9 +9,8 @@ public class CommonUtils {
     public static final String FILE_ZI = "zi.json";
     public static final String FILE_CHENGYU = "chengyu.json";
 
-    public static final String TABLE_PYWORDTB = "pywordtb";
-    public static final String TABLE_WORDTB = "wordtb";
-    public static final String TABLE_CYUB = "cyutb";
-    public static final String TABLE_COLLECT_WORDTB = "collwordtb";
-    public static final String TABLE_COLLECT_CYUTB = "collcyutb";
+    public static final String TABLE_ZI_HISTORY = "zi_history";
+    public static final String TABLE_CHENGYU_HISTORY = "chengyu_history";
+    public static final String TABLE_ZI_COLLECTION = "zi_collection";
+    public static final String TABLE_CHENGYU_COLLECTION = "chengyu_collection";
 }
