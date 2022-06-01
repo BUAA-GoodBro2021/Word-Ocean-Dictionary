@@ -77,7 +77,7 @@ public class WordInfoActivity extends AppCompatActivity {
         bihuaTv.setText("笔画 : " + resultBean.getZi_bihua());
         bushouTv.setText("部首 : " + (resultBean.getBushou() == null ? "无部首" : resultBean.getBushou()));
         jijie = Collections.singletonList(resultBean.getExplanation());
-        xiangjie = Collections.singletonList(resultBean.getExplanation());
+        xiangjie = Collections.singletonList(resultBean.getMore());
         // 默认一进去，就显示基本解释
         mDatas.clear();
         mDatas.addAll(jijie);

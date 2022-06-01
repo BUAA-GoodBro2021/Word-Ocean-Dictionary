@@ -12,6 +12,7 @@ public class ZiBean {
     private String zi;
     private int zi_bihua;
     private String explanation;
+    private String more;
     private String bushou;
     private List<String> pinyin;
     private List<String> pinyin_origin;
@@ -56,6 +57,14 @@ public class ZiBean {
 
     public void setZi_bihua(int zi_bihua) {
         this.zi_bihua = zi_bihua;
+    }
+
+    public String getMore() {
+        return more;
+    }
+
+    public void setMore(String more) {
+        this.more = more;
     }
 
     public String getExplanation() {
