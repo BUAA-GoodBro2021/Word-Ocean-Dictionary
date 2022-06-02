@@ -4,6 +4,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/bg_cat2">
+    android:background="#fff1f1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/first_line"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/red_line"
+            android:layout_centerHorizontal="true"/>
+        <View
+            android:id="@+id/second_line"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="8dp"
+            android:background="@mipmap/red_line"
+            android:layout_toRightOf="@id/first_line"/>
+        <View
+            android:id="@+id/third_line"
+            android:layout_width="20dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="8dp"
+            android:background="@mipmap/red_line"
+            android:layout_toRightOf="@id/second_line"/>
+        <View
+            android:id="@+id/forth_line"
+            android:layout_width="20dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="8dp"
+            android:background="@mipmap/red_line"
+            android:layout_toRightOf="@id/third_line"/>
+        <View
+            android:id="@+id/fifth_line"
+            android:layout_width="20dp"
+            android:layout_height="220dp"
+            android:layout_marginLeft="8dp"
+            android:background="@mipmap/red_line"
+            android:layout_toRightOf="@id/forth_line"/>
+        <View
+            android:id="@+id/sixth_line"
+            android:layout_width="20dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="8dp"
+            android:background="@mipmap/red_line"
+            android:layout_toRightOf="@id/fifth_line"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/load_tv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="词海"
+            android:textStyle="bold"
+            android:textSize="100sp"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#a22a2a"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <TextView
+                android:id="@+id/load_tv_developer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Super2021"
+                android:textSize="24sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#a22a2a"
+                android:layout_marginBottom="50dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

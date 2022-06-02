@@ -2,10 +2,13 @@ package com.hui.dict;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -25,15 +28,24 @@ import java.util.Map;
 import java.util.Objects;
 
 public class LoadActivity extends AppCompatActivity {
+    List<View> viewList = new ArrayList<>();
+    View first, second, third, forth, fifth, sixth;
+    TextView logoTv, developerTv;
     // 加载线程是否结束
     final Object isFinish = "";
-    // private final int SPLASH_DISPLAY_LENGHT = 2000; // 两秒后进入系统
+    // 动画
+    List<Animation> topAnimation = new ArrayList<>();
+    Animation middleAnimation, bottomAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
-        //getSupportActionBar().hide();//隐藏标题栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_load);
+        try {
+            initView();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         Thread loadThread=new Thread(){
             @Override
             public void run() {
@@ -67,6 +79,39 @@ public class LoadActivity extends AppCompatActivity {
         }
         // 延时跳转线程，可放视频
         mainThread.start();
+    }
+
+    private void initView() throws CloneNotSupportedException {
+        long baseDuration = 1500L;
+        long deltaDuration = 800L;
+        for(int i = 0;i < 6;i++){
+            topAnimation.add(AnimationUtils.loadAnimation(this, R.anim.top_animation));
+            topAnimation.get(i).setDuration(baseDuration + deltaDuration * i);
+        }
+        middleAnimation = AnimationUtils.loadAnimation(this, R.anim.middle_animation);
+        bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+        first = findViewById(R.id.first_line);
+        second = findViewById(R.id.second_line);
+        third = findViewById(R.id.third_line);
+        forth = findViewById(R.id.forth_line);
+        fifth = findViewById(R.id.fifth_line);
+        sixth = findViewById(R.id.sixth_line);
+        viewList.add(first);
+        viewList.add(second);
+        viewList.add(third);
+        viewList.add(forth);
+        viewList.add(fifth);
+        viewList.add(sixth);
+        logoTv = findViewById(R.id.load_tv_logo);
+        developerTv = findViewById(R.id.load_tv_developer);
+
+        for(int i = 0;i < 6;i++){
+            viewList.get(i).setAnimation(topAnimation.get(i));
+        }
+
+        logoTv.setAnimation(middleAnimation);
+
+        developerTv.setAnimation(bottomAnimation);
     }
 
     private void initList() {
