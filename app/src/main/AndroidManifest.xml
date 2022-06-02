@@ -24,10 +24,10 @@
 
         <activity android:name=".CollectionActivity" />
         <activity android:name=".SettingActivity" />
-        <activity android:name=".ChengyuInfoActivity" />
+        <activity android:name=".ChengyuDetailActivity" />
         <activity android:name=".SearchChengyuActivity" />
         <activity android:name=".IdentifyImgActivity" />
-        <activity android:name=".WordInfoActivity" />
+        <activity android:name=".ZiDetailActivity" />
         <activity android:name=".SearchPinyinActivity" />
         <activity android:name=".SearchBuShouActivity" />
         <activity

@@ -1,16 +1,14 @@
 package com.hui.dict.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 import com.hui.dict.R;
-import com.hui.dict.bean.PinBuWordBean;
-import com.hui.dict.bean.StaticData;
 import com.hui.dict.bean.ZiBean;
 
 import java.util.List;
@@ -43,9 +41,10 @@ public class SearchRightAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_search_pgv,null);
             holder = new ViewHolder(convertView);

@@ -1,5 +1,6 @@
-package com.hui.dict.collect_frag;
+package com.hui.dict.fragment;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -17,6 +18,7 @@ public class CollectFragmentAdapter extends FragmentPagerAdapter {
         this.titles = titles;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         return list.get(position);

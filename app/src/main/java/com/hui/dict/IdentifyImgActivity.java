@@ -21,7 +21,7 @@ public class IdentifyImgActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identify_img);
         gv = findViewById(R.id.iden_gv);
-//        获取上一个界面传递的数据
+        // 获取上一个界面传递的数据
         Bundle bundle = getIntent().getExtras();
         mDatas = bundle.getStringArrayList("wordlist");
         adapter = new ArrayAdapter<>(this, R.layout.item_search_pgv, R.id.item_sgv_tv, mDatas);
@@ -34,7 +34,7 @@ public class IdentifyImgActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String word = mDatas.get(position);
-                Intent intent = new Intent(IdentifyImgActivity.this, WordInfoActivity.class);
+                Intent intent = new Intent(IdentifyImgActivity.this, ZiDetailActivity.class);
                 intent.putExtra("zi", word);
                 startActivity(intent);
             }
@@ -42,10 +42,8 @@ public class IdentifyImgActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iden_iv_back:
-                finish();
-                break;
+        if(view.getId() == R.id.iden_iv_back){
+            finish();
         }
     }
 }

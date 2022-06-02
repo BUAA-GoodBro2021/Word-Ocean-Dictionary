@@ -16,27 +16,24 @@ public class SettingActivity extends AppCompatActivity {
 
 
     public void onClick(View view) {
+        if(view.getId() == R.id.setting_iv_back){
+            finish();
+        }
+        else if(view.getId() == R.id.setting_tv_about){
 
-        switch (view.getId()) {
-            case R.id.setting_iv_back:
-                finish();
-                break;
-            case R.id.setting_tv_about:
+        }
+        else if(view.getId() == R.id.setting_tv_collect){
+            Intent intent = new Intent(this, CollectionActivity.class);
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.setting_tv_feedback){
 
-                break;
-            case R.id.setting_tv_collect:
-                Intent intent = new Intent(this, CollectionActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.setting_tv_feedback:
+        }
+        else if(view.getId() == R.id.setting_tv_good){
 
-                break;
-            case R.id.setting_tv_good:
-
-                break;
-            case R.id.setting_tv_share:
-                shareSoftware();
-                break;
+        }
+        else if(view.getId() == R.id.setting_tv_share){
+            shareSoftware();
         }
     }
 

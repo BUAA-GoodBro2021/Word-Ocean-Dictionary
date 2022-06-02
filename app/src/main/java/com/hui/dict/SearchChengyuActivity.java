@@ -32,14 +32,14 @@ public class SearchChengyuActivity extends AppCompatActivity {
         cyEt = findViewById(R.id.searchcy_et);
         cyGv = findViewById(R.id.searchcy_gv);
         mDatas = new ArrayList<>();
-//        创建适配器对象
+        // 创建适配器对象
         adapter = new ArrayAdapter<>(this, R.layout.item_searchcy_gv, R.id.item_searchcy_tv, mDatas);
         cyGv.setAdapter(adapter);
-//        设置GridView的点击1事件
+        // 设置GridView的点击1事件
         setGVListener();
     }
 
-    /* GridView每一个Item点击事件的方法*/
+    // GridView每一个Item点击事件的方法
     private void setGVListener() {
         cyGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -57,9 +57,7 @@ public class SearchChengyuActivity extends AppCompatActivity {
         initDatas();
     }
 
-    /**
-     * 初始化GridView显示的历史记录数据
-     */
+    // 初始化GridView显示的历史记录数据
     private void initDatas() {
         mDatas.clear();
         List<String> list = DBManager.queryChengyuHistory();
@@ -68,24 +66,22 @@ public class SearchChengyuActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.searchcy_iv_back:
-                finish();
-                break;
-            case R.id.searchcy_iv_search:
-                String text = cyEt.getText().toString();
-                if (TextUtils.isEmpty(text)) {
-                    return;
-                }
-                //跳转到成语详情页面，将输入内容传递过去
-                startPage(text);
-                break;
+        if(view.getId() == R.id.searchcy_iv_back){
+            finish();
+        }
+        else if(view.getId() == R.id.searchcy_iv_search){
+            String text = cyEt.getText().toString();
+            if (TextUtils.isEmpty(text)) {
+                return;
+            }
+            //跳转到成语详情页面，将输入内容传递过去
+            startPage(text);
         }
     }
 
-    /* 携带成语跳转到下一个页面*/
+    // 携带成语跳转到下一个页面
     private void startPage(String text) {
-        Intent intent = new Intent(this, ChengyuInfoActivity.class);
+        Intent intent = new Intent(this, ChengyuDetailActivity.class);
         intent.putExtra("chengyu", text);
         ChengyuBean chengyuBean = StaticData.chengyuBeanMap.get(text);
         if (chengyuBean != null) {

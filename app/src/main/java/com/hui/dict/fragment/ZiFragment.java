@@ -1,4 +1,4 @@
-package com.hui.dict.collect_frag;
+package com.hui.dict.fragment;
 
 
 import android.content.Intent;
@@ -13,9 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
-import com.hui.dict.ChengyuInfoActivity;
+import com.hui.dict.ChengyuDetailActivity;
 import com.hui.dict.R;
-import com.hui.dict.WordInfoActivity;
+import com.hui.dict.ZiDetailActivity;
 import com.hui.dict.db.DBManager;
 //import com.hui.dict.db.DBManager;
 
@@ -36,12 +36,13 @@ public class ZiFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_zi, container, false);
         Bundle bundle = getArguments();
+        assert bundle != null;
         type = bundle.getString("type");  //获取当前Fragment显示的数据类型
         gv = view.findViewById(R.id.zifrag_gv);
         mDatas = new ArrayList<>();
         adapter = new ArrayAdapter<>(getContext(), R.layout.item_search_pgv, R.id.item_sgv_tv, mDatas);
         gv.setAdapter(adapter);
-//        设置GridView的点击事件
+        // 设置GridView的点击事件
         setGVListener();
         return view;
     }
@@ -62,7 +63,6 @@ public class ZiFragment extends Fragment {
         }
         mDatas.addAll(list);
         adapter.notifyDataSetChanged();
-        ;
     }
 
     private void setGVListener() {
@@ -71,12 +71,12 @@ public class ZiFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (type.equals("汉字")) {
                     String zi = mDatas.get(position);
-                    Intent intent = new Intent(getActivity(), WordInfoActivity.class);
+                    Intent intent = new Intent(getActivity(), ZiDetailActivity.class);
                     intent.putExtra("zi", zi);
                     startActivity(intent);
                 } else {
                     String cy = mDatas.get(position);
-                    Intent intent = new Intent(getActivity(), ChengyuInfoActivity.class);
+                    Intent intent = new Intent(getActivity(), ChengyuDetailActivity.class);
                     intent.putExtra("chengyu", cy);
                     startActivity(intent);
                 }

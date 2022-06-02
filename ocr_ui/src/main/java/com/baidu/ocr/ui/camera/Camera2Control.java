@@ -1,7 +1,3 @@
-/*
- * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
- */
-
 package com.baidu.ocr.ui.camera;
 
 import java.nio.ByteBuffer;
@@ -64,9 +60,6 @@ public class Camera2Control implements ICameraControl {
         return null;
     }
 
-    /**
-     * Conversion from screen rotation to JPEG orientation.
-     */
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     private static final int MAX_PREVIEW_SIZE = 2048;
 

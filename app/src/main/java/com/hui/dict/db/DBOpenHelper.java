@@ -19,7 +19,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         String sql;
         // 创建汉字历史记录
         sql = "create table if not exists " + CommonUtils.TABLE_ZI_HISTORY + "(id integer primary key autoincrement,zi varchar(4) not null)";
-        Log.i("***********************", "*******************");
         db.execSQL(sql);
         // 创建成语历史记录
         sql = "create table if not exists " + CommonUtils.TABLE_CHENGYU_HISTORY + "(id integer primary key autoincrement,chengyu varchar(16) not null)";

@@ -1,10 +1,9 @@
 package com.hui.dict.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +19,15 @@ import java.util.List;
 
 public class SearchLeftAdapter extends BaseExpandableListAdapter {
     Context context;
-    List<String> groupDatas; // 表示分组的列表
+    // 表示分组的列表
+    List<String> groupDatas;
     // 将每组对应的子类列表存放到这个集合
     List<List<PinBuBean.ResultBean>> childDatas;
     LayoutInflater inflater;
-    int type; // 因为拼音和部首都用此适配器，所以通过这个属性，进行类型区分
-    int selectGroupPos = 0, selectChildPos = 0; // 表示被选中的组的位置，和被选中的组里面的item的位置
+    // 因为拼音和部首都用此适配器，所以通过这个属性，进行类型区分
+    int type;
+    // 表示被选中的组的位置，和被选中的组里面的item的位置
+    int selectGroupPos = 0, selectChildPos = 0;
 
     public void setSelectChildPos(int selectChildPos) {
         this.selectChildPos = selectChildPos;
@@ -83,9 +85,10 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        GroupViewHolder holder = null;
+        GroupViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_exlv_group, null);
             holder = new GroupViewHolder(convertView);
@@ -98,30 +101,28 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         if (type == CommonUtils.TYPE_PINYIN) {
             holder.groupTv.setText(word);
         } else {
-            holder.groupTv.setText(word + "画");
+            holder.groupTv.setText(String.format("%s画",word));
         }
 
         // 因为选中位置会改变颜色，和其他布局颜色不同，所以判断一下，是否是选中位置
         if (selectGroupPos == groupPosition) {
             convertView.setBackgroundColor(Color.rgb(255, 250, 250));
             holder.groupTv.setTextColor(Color.rgb(230, 82, 82));
-            holder.groupTv.setTextSize(23);
-            holder.groupTv.setTypeface(Typeface.DEFAULT);
-            holder.groupTv.setGravity(Gravity.CENTER);
         } else {
             convertView.setBackgroundResource(R.color.white);
             holder.groupTv.setTextColor(Color.BLACK);
-            holder.groupTv.setTextSize(23);
-            holder.groupTv.setTypeface(Typeface.DEFAULT);
-            holder.groupTv.setGravity(Gravity.CENTER);
         }
+        holder.groupTv.setTextSize(23);
+        holder.groupTv.setTypeface(Typeface.DEFAULT);
+        holder.groupTv.setGravity(Gravity.CENTER);
         return convertView;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView,
             ViewGroup parent) {
-        ChildViewHolder holder = null;
+        ChildViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_exlv_child, null);
             holder = new ChildViewHolder(convertView);
@@ -139,16 +140,13 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         if (selectGroupPos == groupPosition && selectChildPos == childPosition) {
             convertView.setBackgroundColor(Color.rgb(255, 250, 250));
             holder.childTv.setTextColor(Color.rgb(230, 101, 101));
-            holder.childTv.setTextSize(18);
-            holder.childTv.setTypeface(Typeface.DEFAULT);
-            holder.childTv.setGravity(Gravity.CENTER);
         } else {
             convertView.setBackgroundResource(android.R.color.system_accent1_10);
             holder.childTv.setTextColor(Color.BLACK);
-            holder.childTv.setTextSize(18);
-            holder.childTv.setTypeface(Typeface.DEFAULT);
-            holder.childTv.setGravity(Gravity.CENTER);
         }
+        holder.childTv.setTextSize(18);
+        holder.childTv.setTypeface(Typeface.DEFAULT);
+        holder.childTv.setGravity(Gravity.CENTER);
         return convertView;
     }
 
