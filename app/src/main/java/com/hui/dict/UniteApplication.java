@@ -10,7 +10,7 @@ public class UniteApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        初始化数据库对象
+        // 初始化数据库对象
         DBManager.initDB(this);
     }
 }
