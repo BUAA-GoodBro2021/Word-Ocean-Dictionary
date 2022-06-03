@@ -50,21 +50,25 @@
                 <TextView
                     android:id="@+id/cyinfo_tv_zi1"
                     style="@style/chengyuTvStyle"
+                    android:fontFamily="@font/kt"
                     android:text="" />
 
                 <TextView
                     android:id="@+id/cyinfo_tv_zi2"
                     style="@style/chengyuTvStyle"
+                    android:fontFamily="@font/kt"
                     android:text="" />
 
                 <TextView
                     android:id="@+id/cyinfo_tv_zi3"
                     style="@style/chengyuTvStyle"
+                    android:fontFamily="@font/kt"
                     android:text="" />
 
                 <TextView
                     android:id="@+id/cyinfo_tv_zi4"
                     style="@style/chengyuTvStyle"
+                    android:fontFamily="@font/kt"
                     android:text="" />
             </LinearLayout>
             <!-- 拼音-->

@@ -37,21 +37,27 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@mipmap/ic_text_bg"
+        android:fontFamily="@font/kt"
         android:gravity="center"
         android:text=""
         android:textColor="@color/red"
         android:textSize="70sp" />
+
     <TextView
         android:id="@+id/word_tv_pinyin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/word_tv_zi"
         android:layout_centerHorizontal="true"
-        android:text=""
-        android:textSize="30sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
+        android:text=""
         android:textColor="@color/black"
-        android:layout_margin="10dp"/>
+        android:textSize="25sp"
+        android:textStyle="normal"/>
     <LinearLayout
         android:id="@+id/word_layout_center"
         android:layout_width="match_parent"

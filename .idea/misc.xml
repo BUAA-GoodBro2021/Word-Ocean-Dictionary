@@ -12,6 +12,27 @@
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_splash.xml" value="0.1875" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_word_info.xml" value="0.25" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_exlv_child.xml" value="0.1703125" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/drawable/chengyu_tv_bg.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/font/kai.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/font/kaiti.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/font/kt.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_chengyu_info.xml" value="0.18947368421052632" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_collection.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_identify_img.xml" value="0.18947368421052632" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_load.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_search_chengyu.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_search_pinyin.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_setting.xml" value="0.1" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/activity_word_info.xml" value="0.125" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/fragment_zi.xml" value="0.14221014492753623" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/item_exlv_child.xml" value="0.14221014492753623" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/item_exlv_group.xml" value="0.14221014492753623" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/item_search_pgv.xml" value="0.264" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/item_searchcy_gv.xml" value="0.14221014492753623" />
+        <entry key="..\:/ZQ/university/2/Second/oo/WordOcean/app/src/main/res/layout/item_word_jslv.xml" value="0.14221014492753623" />
       </map>
     </option>
   </component>
