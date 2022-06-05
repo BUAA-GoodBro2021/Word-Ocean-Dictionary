@@ -15,7 +15,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.super2021.dict.bean.ChengyuBean;
-import com.super2021.dict.bean.PinBuBean;
+import com.super2021.dict.bean.BaseBean;
 import com.super2021.dict.bean.StaticData;
 import com.super2021.dict.bean.ZiBean;
 import com.super2021.dict.utils.AssetsUtils;
@@ -123,16 +123,16 @@ public class LoadActivity extends AppCompatActivity {
         Map<String, List<ZiBean>> buShouBeans = new HashMap<>();
         String pinYinList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_PINYIN);
         String buShouList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_BUSHOU);
-        PinBuBean pinYinBean = gson.fromJson(pinYinList, PinBuBean.class);
-        PinBuBean buShouBean = gson.fromJson(buShouList, PinBuBean.class);
+        BaseBean pinYinBean = gson.fromJson(pinYinList, BaseBean.class);
+        BaseBean buShouBean = gson.fromJson(buShouList, BaseBean.class);
         StaticData.pinYinBean = pinYinBean;
         StaticData.buShouBean = buShouBean;
         StaticData.ziBeanPinYinMap = new HashMap<>();
         StaticData.ziBeanBuShouMap = new HashMap<>();
-        for (PinBuBean.ResultBean resultBean : StaticData.pinYinBean.getResult()) {
+        for (BaseBean.ResultBean resultBean : StaticData.pinYinBean.getResult()) {
             pinYinBeans.put(resultBean.getPinyin(), new ArrayList<ZiBean>());
         }
-        for (PinBuBean.ResultBean resultBean : StaticData.buShouBean.getResult()) {
+        for (BaseBean.ResultBean resultBean : StaticData.buShouBean.getResult()) {
             buShouBeans.put(resultBean.getBushou(), new ArrayList<ZiBean>());
         }
 

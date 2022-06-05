@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class StaticData {
-    public static PinBuBean pinYinBean;
-    public static PinBuBean buShouBean;
+    public static BaseBean pinYinBean;
+    public static BaseBean buShouBean;
     public static Map<String, List<ListBean>> ziBeanPinYinMap = new HashMap<>();
     public static Map<String, List<ListBean>> ziBeanBuShouMap = new HashMap<>();
     public static Map<String, ZiBean> ziBeanMap = new HashMap<>();

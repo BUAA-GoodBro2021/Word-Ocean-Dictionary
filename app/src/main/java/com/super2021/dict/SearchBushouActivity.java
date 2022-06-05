@@ -9,7 +9,7 @@ import com.super2021.dict.utils.CommonUtils;
 import java.util.List;
 import java.util.Objects;
 
-public class SearchBuShouActivity extends BaseSearchActivity {
+public class SearchBushouActivity extends BaseSearchActivity {
     //创建界面
     @Override
     protected void onCreate(Bundle savedInstanceState) {

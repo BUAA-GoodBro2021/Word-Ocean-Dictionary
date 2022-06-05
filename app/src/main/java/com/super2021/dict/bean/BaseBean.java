@@ -2,7 +2,7 @@ package com.super2021.dict.bean;
 
 import java.util.List;
 
-public class PinBuBean {
+public class BaseBean {
 
     /**
      * reason : success

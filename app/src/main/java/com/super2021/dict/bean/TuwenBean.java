@@ -2,7 +2,7 @@ package com.super2021.dict.bean;
 
 import java.util.List;
 
-public class TuWenBean {
+public class TuwenBean {
 
     /**
      * words_result : [{"words":"资重磅加仓"}]

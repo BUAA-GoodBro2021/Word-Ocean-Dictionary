@@ -16,7 +16,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.super2021.dict.adapter.SearchLeftAdapter;
 import com.super2021.dict.adapter.SearchRightAdapter;
-import com.super2021.dict.bean.PinBuBean;
+import com.super2021.dict.bean.BaseBean;
 import com.super2021.dict.bean.StaticData;
 import com.super2021.dict.bean.ZiBean;
 //import com.hui.dict.db.DBManager;
@@ -33,7 +33,7 @@ public class BaseSearchActivity extends AppCompatActivity {
     PullToRefreshGridView pullGv;
     TextView titleTv;
     List<String> groupDatas;  //表示分组的列表   [A,B,C,D.....]
-    List<List<PinBuBean.ResultBean>> childDatas;  //将魅族对应的子类i列表存放到这个集合
+    List<List<BaseBean.ResultBean>> childDatas;  //将魅族对应的子类i列表存放到这个集合
     SearchLeftAdapter adapter;
     int selGroupPos = 0;    //表示被点击的组的位置
     int selChildPos = 0;   //表示选中组中某一个位置
@@ -158,9 +158,9 @@ public class BaseSearchActivity extends AppCompatActivity {
      * 改变了左边的选中，从网上获取对应选中的结果，显示在右边
      */
     private void getDataAlterWord(int type) {
-        List<PinBuBean.ResultBean> groupList = childDatas.get(selGroupPos);  //获取选中组
+        List<BaseBean.ResultBean> groupList = childDatas.get(selGroupPos);  //获取选中组
         page = 1;
-        PinBuBean.ResultBean bean = groupList.get(selChildPos);
+        BaseBean.ResultBean bean = groupList.get(selChildPos);
         List<ZiBean> list;
         StaticData.ListBean listBean = new StaticData.ListBean();
         if (type == CommonUtils.TYPE_PINYIN) {
@@ -181,12 +181,12 @@ public class BaseSearchActivity extends AppCompatActivity {
         childDatas = new ArrayList<>();
         String json = AssetsUtils.getAssetsContent(this, assetsName);
         if (!TextUtils.isEmpty(json)) {
-            PinBuBean pinBuBean = new Gson().fromJson(json, PinBuBean.class);
-            List<PinBuBean.ResultBean> list = pinBuBean.getResult();
+            BaseBean baseBean = new Gson().fromJson(json, BaseBean.class);
+            List<BaseBean.ResultBean> list = baseBean.getResult();
             // 整理数据
-            List<PinBuBean.ResultBean> grouplist = new ArrayList<>(); //声明每组包含的元素集合
+            List<BaseBean.ResultBean> grouplist = new ArrayList<>(); //声明每组包含的元素集合
             for (int i = 0; i < list.size(); i++) {
-                PinBuBean.ResultBean bean = list.get(i);   // id,pinyin_key,pinyi
+                BaseBean.ResultBean bean = list.get(i);   // id,pinyin_key,pinyi
                 if (type == CommonUtils.TYPE_PINYIN) {
                     String pinyin_key = bean.getPinyin_key();  //获取大写字母
                     if (!groupDatas.contains(pinyin_key)) {   //判断是否存在于分组的列表当中

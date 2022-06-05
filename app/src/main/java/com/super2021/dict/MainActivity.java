@@ -19,7 +19,7 @@ import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.google.gson.Gson;
 import com.super2021.dict.bean.StaticData;
-import com.super2021.dict.bean.TuWenBean;
+import com.super2021.dict.bean.TuwenBean;
 import com.super2021.dict.bean.ZiBean;
 import com.super2021.dict.utils.FileUtils;
 import com.super2021.dict.utils.PatternUtils;
@@ -94,13 +94,13 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onResult(String result) {
                             // result是识别出的字符串，可以将字符串传递给下一个界面
-                            TuWenBean wenBean = new Gson().fromJson(result, TuWenBean.class);
-                            List<TuWenBean.WordsResultBean> wordsList = wenBean.getWords_result();
+                            TuwenBean wenBean = new Gson().fromJson(result, TuwenBean.class);
+                            List<TuwenBean.WordsResultBean> wordsList = wenBean.getWords_result();
                             // 将提取到的有用的汉字存放到集合当中，传递到下一个界面
                             ArrayList<String> list = new ArrayList<>();
                             if (wordsList != null && wordsList.size() != 0) {
                                 for (int i = 0; i < wordsList.size(); i++) {
-                                    TuWenBean.WordsResultBean bean = wordsList.get(i);
+                                    TuwenBean.WordsResultBean bean = wordsList.get(i);
                                     String words = bean.getWords();
                                     String res = PatternUtils.removeAll(words);
                                     // 将字符串当中每一个字符串都添加到集合当中
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             intent.setClass(this, SearchPinyinActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.main_tv_bushou) {
-            intent.setClass(this, SearchBuShouActivity.class);
+            intent.setClass(this, SearchBushouActivity.class);
             startActivity(intent);
         } else if (view.getId() == R.id.main_tv_chengyu) {
             intent.setClass(this, SearchChengyuActivity.class);

@@ -12,7 +12,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.super2021.dict.R;
-import com.super2021.dict.bean.PinBuBean;
+import com.super2021.dict.bean.BaseBean;
 import com.super2021.dict.utils.CommonUtils;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
     // 表示分组的列表
     List<String> groupDatas;
     // 将每组对应的子类列表存放到这个集合
-    List<List<PinBuBean.ResultBean>> childDatas;
+    List<List<BaseBean.ResultBean>> childDatas;
     LayoutInflater inflater;
     // 因为拼音和部首都用此适配器，所以通过这个属性，进行类型区分
     int type;
@@ -37,7 +37,7 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         this.selectGroupPos = selectGroupPos;
     }
 
-    public SearchLeftAdapter(Context context, List<String> groupDatas, List<List<PinBuBean.ResultBean>> childDatas,
+    public SearchLeftAdapter(Context context, List<String> groupDatas, List<List<BaseBean.ResultBean>> childDatas,
             int type) {
         this.context = context;
         this.groupDatas = groupDatas;
@@ -130,7 +130,7 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         } else {
             holder = (ChildViewHolder) convertView.getTag();
         }
-        PinBuBean.ResultBean bean = childDatas.get(groupPosition).get(childPosition);
+        BaseBean.ResultBean bean = childDatas.get(groupPosition).get(childPosition);
         if (type == CommonUtils.TYPE_PINYIN) {
             holder.childTv.setText(bean.getPinyin());
         } else {
