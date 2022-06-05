@@ -12,6 +12,10 @@
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_splash.xml" value="0.1875" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_word_info.xml" value="0.25" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_exlv_child.xml" value="0.1703125" />
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_search_chengyu_gv.xml" value="0.3536458333333333" />
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_search_pgv.xml" value="0.3536458333333333" />
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_searchcy_gv.xml" value="0.3536458333333333" />
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_word_jslv.xml" value="0.3536458333333333" />
       </map>
     </option>
   </component>

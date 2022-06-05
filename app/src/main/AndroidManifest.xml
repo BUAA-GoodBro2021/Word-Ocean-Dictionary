@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.hui.dict">
+    package="com.super2021.dict">
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -11,7 +11,7 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name=".UniteApplication"
+        android:name="com.super2021.dict.UniteApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,22 +21,22 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".LoadActivity"
+            android:name="com.super2021.dict.LoadActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CollectionActivity" />
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".ChengyuDetailActivity" />
-        <activity android:name=".SearchChengyuActivity" />
-        <activity android:name=".IdentifyImgActivity" />
-        <activity android:name=".ZiDetailActivity" />
-        <activity android:name=".SearchPinyinActivity" />
-        <activity android:name=".SearchBuShouActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name="com.super2021.dict.CollectionActivity" />
+        <activity android:name="com.super2021.dict.SettingActivity" />
+        <activity android:name="com.super2021.dict.ChengyuDetailActivity" />
+        <activity android:name="com.super2021.dict.SearchChengyuActivity" />
+        <activity android:name="com.super2021.dict.IdentifyImgActivity" />
+        <activity android:name="com.super2021.dict.ZiDetailActivity" />
+        <activity android:name="com.super2021.dict.SearchPinyinActivity" />
+        <activity android:name="com.super2021.dict.SearchBuShouActivity" />
+        <activity android:name="com.super2021.dict.MainActivity"/>
     </application>
 
 </manifest>

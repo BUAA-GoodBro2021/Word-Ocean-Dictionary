@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:background="@color/white">
         <ImageView
-            android:id="@+id/cyinfo_iv_back"
+            android:id="@+id/chengyu_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -20,7 +20,7 @@
             style="@style/titleTvStyle"
             android:text="@string/chengyu_tv_info"/>
         <ImageView
-            android:id="@+id/cyinfo_iv_collection"
+            android:id="@+id/chengyu_iv_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_collection"
@@ -41,40 +41,40 @@
             android:padding="20dp">
 
             <LinearLayout
-                android:id="@+id/cyinfo_layout_zi"
+                android:id="@+id/chengyu_layout_zi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="65dp">
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_zi1"
+                    android:id="@+id/chengyu_tv_zi1"
                     style="@style/chengyuTvStyle"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_zi2"
+                    android:id="@+id/chengyu_tv_zi2"
                     style="@style/chengyuTvStyle"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_zi3"
+                    android:id="@+id/chengyu_tv_zi3"
                     style="@style/chengyuTvStyle"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_zi4"
+                    android:id="@+id/chengyu_tv_zi4"
                     style="@style/chengyuTvStyle"
                     android:text="" />
             </LinearLayout>
             <!-- 拼音-->
             <TextView
-                android:id="@+id/cyinfo_tv_py"
+                android:id="@+id/chengyu_tv_pinyin"
                 style="@style/chengyuTvStyle2"
                 android:text="拼音:" />
 
             <TextView
-                android:id="@+id/cyinfo_tv_sx"
+                android:id="@+id/chengyu_tv_suoxie"
                 style="@style/chengyuTvStyle2"
                 android:text="缩写:" />
 
@@ -86,73 +86,73 @@
                 android:background="#99FFFFFF">
 
                 <TextView
-                    android:id="@+id/cyinfo_tv1"
+                    android:id="@+id/chengyu_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="成语解释" />
 
                 <View
-                    android:id="@+id/cyinfo_line1"
+                    android:id="@+id/chengyu_line1"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_below="@id/cyinfo_tv1"
+                    android:layout_below="@id/chengyu_tv1"
                     android:background="@color/grey_f3f3f3" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_js"
+                    android:id="@+id/chengyu_tv_explanation"
                     style="@style/chengyuTvStyle2"
-                    android:layout_below="@id/cyinfo_line1"
+                    android:layout_below="@id/chengyu_line1"
                     android:layout_centerHorizontal="true"
                     android:text=""
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv2"
+                    android:id="@+id/chengyu_tv2"
                     style="@style/chengyuTvStyle3"
-                    android:layout_below="@id/cyinfo_tv_js"
+                    android:layout_below="@id/chengyu_tv_explanation"
                     android:text="出处" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_from"
+                    android:id="@+id/chengyu_tv_from"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_js"
+                    android:layout_below="@id/chengyu_tv_explanation"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/cyinfo_tv2"
+                    android:layout_toRightOf="@id/chengyu_tv2"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv3"
+                    android:id="@+id/chengyu_tv3"
                     style="@style/chengyuTvStyle3"
-                    android:layout_below="@id/cyinfo_tv_from"
+                    android:layout_below="@id/chengyu_tv_from"
                     android:text="例句" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_example"
+                    android:id="@+id/chengyu_tv_example"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_from"
+                    android:layout_below="@id/chengyu_tv_from"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/cyinfo_tv3"
+                    android:layout_toRightOf="@id/chengyu_tv3"
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv4"
+                    android:id="@+id/chengyu_tv4"
                     style="@style/chengyuTvStyle3"
-                    android:layout_below="@id/cyinfo_tv_example"
+                    android:layout_below="@id/chengyu_tv_example"
                     android:text="语法" />
 
                 <TextView
-                    android:id="@+id/cyinfo_tv_yufa"
+                    android:id="@+id/chengyu_tv_yufa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cyinfo_tv_example"
+                    android:layout_below="@id/chengyu_tv_example"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/cyinfo_tv4"
+                    android:layout_toRightOf="@id/chengyu_tv4"
                     android:text="" />
             </RelativeLayout>
         </LinearLayout>
