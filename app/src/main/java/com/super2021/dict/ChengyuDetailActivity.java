@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.super2021.dict.bean.ChengyuBean;
 //import com.hui.dict.db.DBManager;
 import com.super2021.dict.bean.StaticData;
+import com.super2021.dict.bean.ZiBean;
 import com.super2021.dict.db.DBManager;
 
 public class ChengyuDetailActivity extends AppCompatActivity {
@@ -94,6 +96,12 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.chengyu_iv_collection) {
             isCollect = !isCollect;
             setCollectIvStyle();
+        } else if(view.getId() == R.id.chengyu_tv_zi1 ||
+                view.getId() == R.id.chengyu_tv_zi2 ||
+                view.getId() == R.id.chengyu_tv_zi3 ||
+                view.getId() == R.id.chengyu_tv_zi4) {
+            TextView tv = findViewById(view.getId());
+            startPage(tv.getText().toString());
         }
     }
 
@@ -106,6 +114,17 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         }
         if (!isExistCollection && isCollect) {
             DBManager.insertChengyuCollection(chengyu);
+        }
+    }
+
+    private void startPage(String text) {
+        Intent intent = new Intent(this, ChengyuDetailActivity.class);
+        intent.putExtra("zi", text);
+        ZiBean ziBean = StaticData.ziBeanMap.get(text);
+        if (ziBean != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "无此汉字！", Toast.LENGTH_LONG).show();
         }
     }
 }
