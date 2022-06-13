@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_about_us.xml" value="0.175" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_chengyu_info.xml" value="0.3536458333333333" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_collection.xml" value="0.1703125" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_load.xml" value="0.22" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_search_chengyu.xml" value="0.26197916666666665" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_search_pinyin.xml" value="0.175" />
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_setting.xml" value="0.246875" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_splash.xml" value="0.1875" />
-        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_word_info.xml" value="0.25" />
+        <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/activity_word_info.xml" value="0.18518518518518517" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_exlv_child.xml" value="0.1703125" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_search_chengyu_gv.xml" value="0.3536458333333333" />
         <entry key="..\:/Github/Word-Ocean-Dictionary/app/src/main/res/layout/item_search_pgv.xml" value="0.3536458333333333" />

@@ -11,7 +11,7 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name="com.super2021.dict.UniteApplication"
+        android:name=".UniteApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,22 +21,26 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name="com.super2021.dict.LoadActivity"
+            android:name=".AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoadActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.super2021.dict.CollectionActivity" />
-        <activity android:name="com.super2021.dict.SettingActivity" />
-        <activity android:name="com.super2021.dict.ChengyuDetailActivity" />
-        <activity android:name="com.super2021.dict.SearchChengyuActivity" />
-        <activity android:name="com.super2021.dict.IdentifyImgActivity" />
-        <activity android:name="com.super2021.dict.ZiDetailActivity" />
-        <activity android:name="com.super2021.dict.SearchPinyinActivity" />
-        <activity android:name="com.super2021.dict.SearchBushouActivity" />
-        <activity android:name="com.super2021.dict.MainActivity"/>
+        <activity android:name=".CollectionActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".ChengyuDetailActivity" />
+        <activity android:name=".SearchChengyuActivity" />
+        <activity android:name=".IdentifyImgActivity" />
+        <activity android:name=".ZiDetailActivity" />
+        <activity android:name=".SearchPinyinActivity" />
+        <activity android:name=".SearchBushouActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

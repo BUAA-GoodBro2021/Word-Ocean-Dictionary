@@ -3,8 +3,19 @@ package com.super2021.dict;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.URLSpan;
+import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.TextView;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -13,6 +24,16 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        TextView tv =findViewById(R.id.setting_tv_about);
+        SpannableString link = new SpannableString("关于我们");
+        link.setSpan(new URLSpan("https://github.com/BUAA-GoodBro2021/Word-Ocean-Dictionary"),
+                0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        NoUnderlineSpan noUnderlineSpan = new NoUnderlineSpan();
+        link.setSpan(noUnderlineSpan, 0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.parseColor("#000000"));
+        link.setSpan(foregroundColorSpan, 0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tv.setText(link);
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
 
@@ -42,5 +63,13 @@ public class SettingActivity extends AppCompatActivity {
         String msg = "想随时查找汉字和成语详细内容么？快来下载中华字典APP吧！";
         intent.putExtra(Intent.EXTRA_TEXT, msg);
         startActivity(Intent.createChooser(intent, "分享到...."));
+    }
+
+    static class NoUnderlineSpan extends UnderlineSpan {
+        @Override
+        public void updateDrawState(TextPaint tp) {
+            tp.setColor(tp.linkColor);
+            tp.setUnderlineText(false);
+        }
     }
 }
