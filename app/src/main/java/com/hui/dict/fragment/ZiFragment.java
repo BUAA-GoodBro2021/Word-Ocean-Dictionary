@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 收藏字的Fragment
+ * 字的Fragment适配器
  */
 public class ZiFragment extends Fragment {
     private String type;
@@ -31,6 +31,13 @@ public class ZiFragment extends Fragment {
     List<String> mDatas;
     private ArrayAdapter<String> adapter;
 
+    /**
+     * 设置视图.
+     * @param inflater 设置LayoutInflater
+     * @param container 设置容器
+     * @param savedInstanceState 保存实例状态
+     * @return 视图
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,12 +54,18 @@ public class ZiFragment extends Fragment {
         return view;
     }
 
+    /**
+     * 刷新.
+     */
     @Override
     public void onResume() {
         super.onResume();
         loadData();
     }
 
+    /**
+     * 加载数据.
+     */
     private void loadData() {
         List<String> list;
         mDatas.clear();
@@ -65,6 +78,9 @@ public class ZiFragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * 设置GridView的监听.
+     */
     private void setGVListener() {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -83,5 +99,4 @@ public class ZiFragment extends Fragment {
             }
         });
     }
-
 }

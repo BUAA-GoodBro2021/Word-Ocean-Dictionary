@@ -16,7 +16,9 @@ import com.hui.dict.bean.PinBuBean;
 import com.hui.dict.utils.CommonUtils;
 
 import java.util.List;
-
+/**
+ * 拼音查找和部首查找分类适配器.
+ */
 public class SearchLeftAdapter extends BaseExpandableListAdapter {
     Context context;
     // 表示分组的列表
@@ -29,14 +31,29 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
     // 表示被选中的组的位置，和被选中的组里面的item的位置
     int selectGroupPos = 0, selectChildPos = 0;
 
+    /**
+     * 设置对象位置.
+     * @param selectChildPos 对象位置
+     */
     public void setSelectChildPos(int selectChildPos) {
         this.selectChildPos = selectChildPos;
     }
 
+    /**
+     * 设置组的位置.
+     * @param selectGroupPos 组的位置
+     */
     public void setSelectGroupPos(int selectGroupPos) {
         this.selectGroupPos = selectGroupPos;
     }
 
+    /**
+     * 初始化布局加载器.
+     * @param context 上下文环境
+     * @param groupDatas 组的数据
+     * @param childDatas 所有子类的数据
+     * @param type 类型
+     */
     public SearchLeftAdapter(Context context, List<String> groupDatas, List<List<PinBuBean.ResultBean>> childDatas,
             int type) {
         this.context = context;
@@ -46,45 +63,77 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         inflater = LayoutInflater.from(context); // 初始化布局加载器
     }
 
-    // 获取分组的数量
+    /**
+     * 获取分组数量.
+     * @return 分组数量
+     */
     @Override
     public int getGroupCount() {
         return groupDatas.size();
     }
 
-    // 获取指定分组当中有几个item
+    /**
+     * 获取指定分组当中有几个item.
+     * @return 指定分组中item数量
+     */
     @Override
     public int getChildrenCount(int groupPosition) {
         return childDatas.get(groupPosition).size();
     }
 
-    // 获取分组指定位置的数据
+    /**
+     * 获取分组指定位置的数据.
+     * @return 分组指定位置的数据
+     */
     @Override
     public Object getGroup(int groupPosition) {
         return groupDatas.get(groupPosition);
     }
 
-    // 给出第几组，第几个，求出指定位置的对象
+    /**
+     * 给出第几组，第几个，求出指定位置的对象.
+     * @return 指定位置的对象
+     */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
         return childDatas.get(groupPosition).get(childPosition);
     }
 
+    /**
+     * 获取指定分组id.
+     * @return 指定分组的id
+     */
     @Override
     public long getGroupId(int groupPosition) {
         return groupPosition;
     }
 
+    /**
+     * 获取指定分组id.
+     * @return 指定分组的is
+     */
     @Override
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
 
+    /**
+     * 获取稳定的id.
+     * @return false
+     */
     @Override
     public boolean hasStableIds() {
         return false;
     }
 
+    /**
+     * 获取指定分组的当前状态.
+     * @param groupPosition 指定分组
+     * @param isExpanded 目前是否处于展开状态
+     * @param convertView 选中位置
+     * @param parent 属于的分组
+     * @return 指定位置的分组
+     */
     @SuppressLint("InflateParams")
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
@@ -118,6 +167,15 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     * 获取指定对象的当前状态.
+     * @param groupPosition 指定分组
+     * @param childPosition 指定对象
+     * @param isLastChild 是否是组内最后一个对象
+     * @param convertView 选中位置
+     * @param parent 属于的分组
+     * @return 指定位置的对象
+     */
     @SuppressLint("InflateParams")
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView,
@@ -150,19 +208,29 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     * 判断是否是选择对象.
+     * @param groupPosition 指定分组
+     * @param childPosition 指定对象
+     * @return true
+     */
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
     }
 
+    /**
+     * 分组外观.
+     */
     static class GroupViewHolder {
         TextView groupTv;
-
         public GroupViewHolder(View view) {
             groupTv = view.findViewById(R.id.item_group_tv);
         }
     }
-
+    /**
+     * 对象外观.
+     */
     static class ChildViewHolder {
         TextView childTv;
 

@@ -11,29 +11,45 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 数据库管理模块.
+ */
 public class DBManager {
     private static SQLiteDatabase db;
 
+    /**
+     * 初始化数据库.
+     * @param context 上下文环境
+     */
     public static void initDB(Context context) {
         DBOpenHelper helper = new DBOpenHelper(context);
         db = helper.getWritableDatabase();
     }
 
-    // 插入汉字历史记录
+    /**
+     * 插入汉字历史记录.
+     * @param zi 字
+     */
     public static void insertZiHistory(String zi) {
         ContentValues values = new ContentValues();
         values.put("zi", zi);
         db.insert(CommonUtils.TABLE_ZI_HISTORY, null, values);
     }
 
-    // 插入汉字收藏记录
+    /**
+     * 插入汉字收藏记录.
+     * @param zi 字
+     */
     public static void insertZiCollection(String zi) {
         ContentValues values = new ContentValues();
         values.put("zi", zi);
         db.insert(CommonUtils.TABLE_ZI_COLLECTION, null, values);
     }
 
-    // 查找汉字是否在历史表中
+    /**
+     * 查找汉字是否在历史表中.
+     * @param zi 字
+     */
     public static boolean isZiExistHistory(String zi) {
         String sql = "select * from " + CommonUtils.TABLE_ZI_HISTORY + " where zi = ?";
         Cursor cursor = db.rawQuery(sql, new String[]{zi});
@@ -44,7 +60,10 @@ public class DBManager {
         return false;
     }
 
-    // 查找汉字是否在收藏表中
+    /**
+     * 查找汉字是否在收藏表中.
+     * @param zi 字
+     */
     public static boolean isZiExistCollection(String zi) {
         String sql = "select * from " + CommonUtils.TABLE_ZI_COLLECTION + " where zi = ?";
         Cursor cursor = db.rawQuery(sql, new String[]{zi});
@@ -55,19 +74,28 @@ public class DBManager {
         return false;
     }
 
-    // 删除历史表中的汉字
+    /**
+     * 删除历史表中的汉字.
+     * @param zi 字
+     */
     public static void deleteZiHistory(String zi) {
         String sql = "delete from " + CommonUtils.TABLE_ZI_HISTORY + " where zi = ?";
         db.execSQL(sql, new String[]{zi});
     }
 
-    // 删除收藏表中的汉字
+    /**
+     * 删除收藏表中的汉字.
+     * @param zi 字
+     */
     public static void deleteZiCollection(String zi) {
         String sql = "delete from " + CommonUtils.TABLE_ZI_COLLECTION + " where zi = ?";
         db.execSQL(sql, new String[]{zi});
     }
 
-    // 查找汉字历史中的全部数据
+    /**
+     * 查找汉字历史中的全部数据.
+     * @return 汉字历史中的全部数据
+     */
     public static List<String> queryZiHistory() {
         String sql = "select * from " + CommonUtils.TABLE_ZI_HISTORY;
         Cursor cursor = db.rawQuery(sql, null);
@@ -81,7 +109,10 @@ public class DBManager {
         return list;
     }
 
-    // 查找汉字收藏中的全部数据
+    /**
+     * 查找汉字收藏中的全部数据.
+     * @return 汉字收藏中的全部数据
+     */
     public static List<String> queryZiCollection() {
         String sql = "select * from " + CommonUtils.TABLE_ZI_COLLECTION;
         Cursor cursor = db.rawQuery(sql, null);
@@ -95,21 +126,30 @@ public class DBManager {
         return list;
     }
 
-    // 插入成语历史记录
+    /**
+     * 插入成语历史记录.
+     * @param chengyu 成语
+     */
     public static void insertChengyuHistory(String chengyu) {
         ContentValues values = new ContentValues();
         values.put("chengyu", chengyu);
         db.insert(CommonUtils.TABLE_CHENGYU_HISTORY, null, values);
     }
 
-    // 插入成语收藏记录
+    /**
+     * 插入成语收藏记录.
+     * @param chengyu 成语
+     */
     public static void insertChengyuCollection(String chengyu) {
         ContentValues values = new ContentValues();
         values.put("chengyu", chengyu);
         db.insert(CommonUtils.TABLE_CHENGYU_COLLECTION, null, values);
     }
 
-    // 查找成语是否在历史表中
+    /**
+     * 查找成语是否在历史表中.
+     * @param chengyu 成语
+     */
     public static boolean isChengyuExistHistory(String chengyu) {
         String sql = "select * from " + CommonUtils.TABLE_CHENGYU_HISTORY + " where chengyu = ?";
         Cursor cursor = db.rawQuery(sql, new String[]{chengyu});
@@ -120,7 +160,10 @@ public class DBManager {
         return false;
     }
 
-    // 查找成语是否在收藏表中
+    /**
+     * 查找成语是否在收藏表中.
+     * @param chengyu 成语
+     */
     public static boolean isChengyuExistCollection(String chengyu) {
         String sql = "select * from " + CommonUtils.TABLE_CHENGYU_COLLECTION + " where chengyu = ?";
         Cursor cursor = db.rawQuery(sql, new String[]{chengyu});
@@ -131,19 +174,28 @@ public class DBManager {
         return false;
     }
 
-    // 删除历史表中的成语
+    /**
+     * 删除历史表中的成语.
+     * @param chengyu 成语
+     */
     public static void deleteChengyuHistory(String chengyu) {
         String sql = "delete from " + CommonUtils.TABLE_CHENGYU_HISTORY + " where chengyu = ?";
         db.execSQL(sql, new String[]{chengyu});
     }
 
-    // 删除收藏表中的成语
+    /**
+     * 删除收藏表中的成语.
+     * @param chengyu 成语
+     */
     public static void deleteChengyuCollection(String chengyu) {
         String sql = "delete from " + CommonUtils.TABLE_CHENGYU_COLLECTION + " where chengyu = ?";
         db.execSQL(sql, new String[]{chengyu});
     }
 
-    // 查找成语历史中的全部数据
+    /**
+     * 查找成语历史中的全部数据.
+     * @return 成语历史中的全部数据
+     */
     public static List<String> queryChengyuHistory() {
         String sql = "select * from " + CommonUtils.TABLE_CHENGYU_HISTORY;
         Cursor cursor = db.rawQuery(sql, null);
@@ -157,7 +209,10 @@ public class DBManager {
         return list;
     }
 
-    // 查找成语收藏中的全部数据
+    /**
+     * 查找成语收藏中的全部数据.
+     * @return 成语收藏中的全部数据
+     */
     public static List<String> queryChengyuCollection() {
         String sql = "select * from " + CommonUtils.TABLE_CHENGYU_COLLECTION;
         Cursor cursor = db.rawQuery(sql, null);

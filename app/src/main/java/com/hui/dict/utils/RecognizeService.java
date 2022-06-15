@@ -20,10 +20,6 @@ import com.baidu.ocr.sdk.model.WordSimple;
 
 import java.io.File;
 
-/**
- * Created by ruanshimin on 2017/4/20.
- */
-
 public class RecognizeService {
 
    public interface ServiceListener {

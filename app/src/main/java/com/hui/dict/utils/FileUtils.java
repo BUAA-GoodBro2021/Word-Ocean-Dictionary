@@ -7,7 +7,14 @@ import android.content.Context;
 
 import java.io.File;
 
+/**
+ * file文件夹下的工具类.
+ */
 public class FileUtils {
+    /**
+     * 保存文件.
+     * @param context 上下文环境
+     */
     public static File getSaveFile(Context context) {
         return new File(context.getFilesDir(), "pic.jpg");
     }

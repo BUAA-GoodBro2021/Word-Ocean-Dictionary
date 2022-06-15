@@ -9,11 +9,18 @@ import androidx.annotation.Nullable;
 
 import com.hui.dict.utils.CommonUtils;
 
+/**
+ * 打开数据库.
+ */
 public class DBOpenHelper extends SQLiteOpenHelper {
     public DBOpenHelper(@Nullable Context context) {
         super(context, "word_ocean.db", null, 1);
     }
 
+    /**
+     * 创建记录和表.
+     * @param db 要插入的数据库
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql;
@@ -31,6 +38,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
     }
 
+    /**
+     * 更新数据库.
+     * @param db 要插入的数据库
+     * @param newVersion 新的视图
+     * @param oldVersion 旧的视图
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
