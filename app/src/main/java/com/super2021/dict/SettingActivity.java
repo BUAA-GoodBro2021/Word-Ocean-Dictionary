@@ -60,7 +60,7 @@ public class SettingActivity extends AppCompatActivity {
         // 分享这个软件到其他用户
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        String msg = "想随时查找汉字和成语详细内容么？快来下载中华字典APP吧！\nhttps://github.com/BUAA-GoodBro2021/Word-Ocean-Dictionary";
+        String msg = "想随时查找汉字和成语详细内容么？快来下载词海APP吧！\nhttps://github.com/BUAA-GoodBro2021/Word-Ocean-Dictionary";
         intent.putExtra(Intent.EXTRA_TEXT, msg);
         startActivity(Intent.createChooser(intent, "分享链接"));
     }
