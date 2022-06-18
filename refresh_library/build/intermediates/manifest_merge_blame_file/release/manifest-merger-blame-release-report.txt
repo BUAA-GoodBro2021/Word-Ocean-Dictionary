@@ -6,11 +6,11 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\AndroidStudioProjects\chinese-dictionary-master\refresh_library\src\main\AndroidManifest.xml
+8-->E:\Github\Dictionary\refresh_library\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->D:\AndroidStudioProjects\chinese-dictionary-master\refresh_library\src\main\AndroidManifest.xml
+9-->E:\Github\Dictionary\refresh_library\src\main\AndroidManifest.xml
 10
 11    <application />
-11-->D:\AndroidStudioProjects\chinese-dictionary-master\refresh_library\src\main\AndroidManifest.xml:9:5-20
+11-->E:\Github\Dictionary\refresh_library\src\main\AndroidManifest.xml:9:5-20
 12
 13</manifest>
