@@ -139,7 +139,7 @@ public class ChengyuDetailActivity extends AppCompatActivity {
     }
 
     private void startPage(String text) {
-        Intent intent = new Intent(this, ChengyuDetailActivity.class);
+        Intent intent = new Intent(this, ZiDetailActivity.class);
         intent.putExtra("zi", text);
         ZiBean ziBean = StaticData.ziBeanMap.get(text);
         if (ziBean != null) {

@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.Toast;
+
+import com.super2021.dict.bean.StaticData;
+import com.super2021.dict.bean.ZiBean;
 
 import java.util.ArrayList;
 
@@ -47,7 +51,12 @@ public class IdentifyImgActivity extends AppCompatActivity {
                 String word = mDatas.get(position);
                 Intent intent = new Intent(IdentifyImgActivity.this, ZiDetailActivity.class);
                 intent.putExtra("zi", word);
-                startActivity(intent);
+                ZiBean ziBean = StaticData.ziBeanMap.get(word);
+                if (ziBean != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "无此汉字！", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
