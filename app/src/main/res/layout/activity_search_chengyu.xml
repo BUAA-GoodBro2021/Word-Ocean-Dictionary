@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:background="@color/white">
         <ImageView
-            android:id="@+id/searchcy_iv_back"
+            android:id="@+id/search_chengyu_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -18,7 +18,7 @@
             android:src="@mipmap/ic_back"/>
 
         <TextView
-            android:id="@+id/searchcy_tv"
+            android:id="@+id/search_chengyu_tv"
             style="@style/titleTvStyle"
             android:text="@string/main_tv_chengyu" />
     </RelativeLayout>
@@ -30,7 +30,7 @@
         android:layout_marginTop="40dp">
 
         <EditText
-            android:id="@+id/searchcy_et"
+            android:id="@+id/search_chengyu_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/main_et_bg_all_2"
@@ -38,7 +38,7 @@
             android:maxLength="4" />
 
         <ImageView
-            android:id="@+id/searchcy_iv_search"
+            android:id="@+id/search_chengyu_iv_search"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -55,7 +55,7 @@
         android:text="@string/chengyu_tv_history"
         android:textSize="16sp"/>
     <GridView
-        android:id="@+id/searchcy_gv"
+        android:id="@+id/search_chengyu_gv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"

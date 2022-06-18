@@ -9,7 +9,7 @@
         android:layout_height="50dp"
         android:background="@color/white">
         <ImageView
-            android:id="@+id/wordinfo_iv_back"
+            android:id="@+id/zi_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -19,7 +19,7 @@
             style="@style/titleTvStyle"
             android:text="@string/word_tv_info"/>
         <ImageView
-            android:id="@+id/wordinfo_iv_collection"
+            android:id="@+id/zi_iv_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_collection"

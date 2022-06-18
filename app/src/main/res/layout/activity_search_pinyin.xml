@@ -11,14 +11,14 @@
         android:layout_height="50dp"
         android:background="@color/white">
         <ImageView
-            android:id="@+id/searchpy_iv_back"
+            android:id="@+id/search_zi_iv_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:onClick="onClick"
             android:src="@mipmap/ic_back"/>
         <TextView
-            android:id="@+id/searchpy_tv"
+            android:id="@+id/search_zi_tv"
             style="@style/titleTvStyle"
             android:text="@string/main_tv_pinyin"/>
     </RelativeLayout>
@@ -29,7 +29,7 @@
         android:weightSum="3"
         android:background="@mipmap/bg_cat2">
         <ExpandableListView
-            android:id="@+id/searchpy_elv"
+            android:id="@+id/search_zi_elv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -37,7 +37,7 @@
             android:layout_marginTop="1dp"
             android:background="#C9FFFFFF"/>
         <com.handmark.pulltorefresh.library.PullToRefreshGridView
-            android:id="@+id/searchpy_gv"
+            android:id="@+id/search_zi_gv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
