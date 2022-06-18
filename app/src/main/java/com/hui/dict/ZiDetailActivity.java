@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 字的详情的Activity组件.
+ */
 public class ZiDetailActivity extends AppCompatActivity {
     TextView ziTv, pyTv, bihuaTv, bushouTv, jsTv, xxjsTv;
     ListView jsLv;
@@ -36,6 +39,10 @@ public class ZiDetailActivity extends AppCompatActivity {
     // 判断这个汉字是否已经存在于历史表
     boolean isExistHistory = false;
 
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +70,9 @@ public class ZiDetailActivity extends AppCompatActivity {
         setCollectIvStyle();
     }
 
-    // 根据收藏的状态，改变星星的颜色
+    /**
+     * 根据收藏的状态，改变星星的颜色.
+     */
     private void setCollectIvStyle() {
         if (isCollect) {
             collectIv.setImageResource(R.mipmap.ic_collection_fs);
@@ -72,6 +81,10 @@ public class ZiDetailActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 设置刚进入的显示界面.
+     * @param resultBean 成语模块
+     */
     private void notifyView(ZiBean resultBean) {
         ziTv.setText(resultBean.getZi());
         pyTv.setText(resultBean.getPinyin().toString());
@@ -87,6 +100,9 @@ public class ZiDetailActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * 查找控件的方法.
+     */
     private void initView() {
         ziTv = findViewById(R.id.word_tv_zi);
         pyTv = findViewById(R.id.word_tv_pinyin);
@@ -98,6 +114,10 @@ public class ZiDetailActivity extends AppCompatActivity {
         collectIv = findViewById(R.id.wordinfo_iv_collection);
     }
 
+    /**
+     * 点击事件.
+     * @param view 点击的视图
+     */
     public void onClick(View view) {
         if (view.getId() == R.id.wordinfo_iv_back) {
             finish();
@@ -121,9 +141,8 @@ public class ZiDetailActivity extends AppCompatActivity {
         }
     }
 
-    /*
-     * 当activity被销毁时回调的方法
-     * 将汉字进行插入或者删除
+    /**
+     * 当activity被销毁时回调的方法.
      */
     @Override
     protected void onDestroy() {

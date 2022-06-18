@@ -19,12 +19,19 @@ import com.hui.dict.db.DBManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 成语查找的Activity组件.
+ */
 public class SearchChengyuActivity extends AppCompatActivity {
     EditText cyEt;
     GridView cyGv;
     List<String> mDatas;
     private ArrayAdapter<String> adapter;
 
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +46,9 @@ public class SearchChengyuActivity extends AppCompatActivity {
         setGVListener();
     }
 
-    // GridView每一个Item点击事件的方法
+    /**
+     * GridView每一个Item点击事件的方法.
+     */
     private void setGVListener() {
         cyGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,6 +59,9 @@ public class SearchChengyuActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 恢复.
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -57,7 +69,9 @@ public class SearchChengyuActivity extends AppCompatActivity {
         initDatas();
     }
 
-    // 初始化GridView显示的历史记录数据
+    /**
+     * 初始化GridView显示的历史记录数据.
+     */
     private void initDatas() {
         mDatas.clear();
         List<String> list = DBManager.queryChengyuHistory();
@@ -65,6 +79,10 @@ public class SearchChengyuActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * 点击事件.
+     * @param view 点击的视图
+     */
     public void onClick(View view) {
         if(view.getId() == R.id.searchcy_iv_back){
             finish();
@@ -79,7 +97,10 @@ public class SearchChengyuActivity extends AppCompatActivity {
         }
     }
 
-    // 携带成语跳转到下一个页面
+    /**
+     * 携带成语跳转到下一个页面.
+     * @param text 要查找的成语
+     */
     private void startPage(String text) {
         Intent intent = new Intent(this, ChengyuDetailActivity.class);
         intent.putExtra("chengyu", text);

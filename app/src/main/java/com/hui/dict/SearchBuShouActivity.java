@@ -9,7 +9,14 @@ import com.hui.dict.utils.CommonUtils;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * 部首查找的Activity组件.
+ */
 public class SearchBuShouActivity extends BaseSearchActivity {
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -38,6 +38,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 主页的Activity组件.
+ */
 public class MainActivity extends AppCompatActivity {
     TextView pyTv, bsTv, cyuTv, twenTv, juziTv;
     EditText ziEt;
@@ -45,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_GENERAL_BASIC = 106;
     private AlertDialog.Builder alertDialog;
 
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         initAccessTokenWithAkSk();
     }
 
+    /**
+     * 检查令牌状态.
+     * @return 返回是否有令牌
+     */
     private boolean checkTokenStatus() {
         if (!hasGotToken) {
             Toast.makeText(getApplicationContext(), "token还未成功获取", Toast.LENGTH_LONG).show();
@@ -61,15 +72,25 @@ public class MainActivity extends AppCompatActivity {
         return hasGotToken;
     }
 
-    // 用明文ak，sk初始化
+    /**
+     * 用明文ak，sk初始化.
+     */
     private void initAccessTokenWithAkSk() {
         OCR.getInstance(this).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
+            /**
+             * 返回结果正确.
+             * @param result 结果
+             */
             @Override
             public void onResult(AccessToken result) {
                 String token = result.getAccessToken();
                 hasGotToken = true;
             }
 
+            /**
+             * 返回结果错误.
+             * @param error 错误
+             */
             @Override
             public void onError(OCRError error) {
                 error.printStackTrace();
@@ -78,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
         }, getApplicationContext(), "MSaY1m8CryxI44ILaMu3e76H", "iqZmCIIWOwTKCrsQP8h7ps54yOS4KSXc");
     }
 
+    /**
+     * alert文案.
+     * @param title 标题
+     * @param message 信息
+     */
     private void alertText(final String title, final String message) {
         this.runOnUiThread(new Runnable() {
             @Override
@@ -90,9 +116,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 识别成功回调，通用文字识别.
+     * @param requestCode 申请编号
+     * @param resultCode 结果编号
+     * @param data 数据
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // 识别成功回调，通用文字识别
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_GENERAL_BASIC && resultCode == Activity.RESULT_OK) {
             RecognizeService.recGeneralBasic(this, FileUtils.getSaveFile(getApplicationContext()).getAbsolutePath(),
@@ -134,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 删除数据.
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -141,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
         OCR.getInstance(this).release();
     }
 
+    /**
+     * 查找控件的方法.
+     */
     private void initView() {
         pyTv = findViewById(R.id.main_tv_pinyin);
         bsTv = findViewById(R.id.main_tv_bushou);
@@ -150,6 +187,10 @@ public class MainActivity extends AppCompatActivity {
         ziEt = findViewById(R.id.main_et);
     }
 
+    /**
+     * 点击事件.
+     * @param view 点击的视图
+     */
     public void onClick(View view) {
         Intent intent = new Intent();
         if (view.getId() == R.id.main_iv_setting) {

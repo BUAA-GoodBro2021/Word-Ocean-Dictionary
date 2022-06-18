@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * 查找的Activity组件.
+ */
 public class BaseSearchActivity extends AppCompatActivity {
     ExpandableListView exLv;
     PullToRefreshGridView pullGv;
@@ -45,6 +48,10 @@ public class BaseSearchActivity extends AppCompatActivity {
     int page = 1;   //当前获取的页数
     String word = "";   //点击了左侧的哪个拼音或者部首
 
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +64,7 @@ public class BaseSearchActivity extends AppCompatActivity {
     }
 
     /**
-     * 初始化GridView的数据源
+     * 初始化GridView的数据源.
      */
     public void initGridDatas() {
         gridDatas = new ArrayList<>();
@@ -66,7 +73,10 @@ public class BaseSearchActivity extends AppCompatActivity {
         pullGv.setAdapter(gridAdapter);
     }
 
-    //    设置GridView的监听器
+    /**
+     * 设置GridView的监听器.
+     * @param type 类型
+     */
     public void setGVListener(final int type) {
 //        上拉加载的监听器
         pullGv.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
@@ -107,7 +117,10 @@ public class BaseSearchActivity extends AppCompatActivity {
 
     }
 
-    // 更新GridView当中的数据，提示适配器重新加载
+    /**
+     * 更新GridView当中的数据，提示适配器重新加载.
+     * @param list 传入的字的数据
+     */
     public void refreshDataByGV(List<ZiBean> list) {
         if (page == 1) {   //加载了新的拼音或者部首对应的集合
             gridDatas.clear();
@@ -121,7 +134,10 @@ public class BaseSearchActivity extends AppCompatActivity {
         }
     }
 
-    // 设置ExpandListView的监听方法
+    /**
+     * 设置ExpandListView的监听方法.
+     * @param type 传入的字的数据
+     */
     public void setExLvListener(final int type) {
         exLv.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
@@ -154,7 +170,8 @@ public class BaseSearchActivity extends AppCompatActivity {
     }
 
     /**
-     * 改变了左边的选中，从网上获取对应选中的结果，显示在右边
+     * 改变了左边的选中，从网上获取对应选中的结果，显示在右边.
+     * @param type 类型
      */
     private void getDataAlterWord(int type) {
         List<PinBuBean.ResultBean> groupList = childDatas.get(selGroupPos);  //获取选中组
@@ -174,6 +191,11 @@ public class BaseSearchActivity extends AppCompatActivity {
         refreshDataByGV(list);
     }
 
+    /**
+     * 初始化数据.
+     * @param assetsName assests文件夹的名字
+     * @param type 类型
+     */
     public void initData(String assetsName, int type) {
         groupDatas = new ArrayList<>();
         childDatas = new ArrayList<>();
@@ -225,6 +247,10 @@ public class BaseSearchActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 点击事件.
+     * @param view 点击的视图
+     */
     public void onClick(View view) {
         if(view.getId() == R.id.searchpy_iv_back){
             finish();

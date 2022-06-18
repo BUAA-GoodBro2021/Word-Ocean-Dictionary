@@ -13,6 +13,9 @@ import com.hui.dict.bean.ChengyuBean;
 import com.hui.dict.bean.StaticData;
 import com.hui.dict.db.DBManager;
 
+/**
+ * 成语详情的Activity组件.
+ */
 public class ChengyuDetailActivity extends AppCompatActivity {
     TextView ziTv1, ziTv2, ziTv3, ziTv4, pyTv, jsTv, fromTv, exampleTv, yufaTv, suoxieTv;
     ImageView collectIv;
@@ -24,6 +27,10 @@ public class ChengyuDetailActivity extends AppCompatActivity {
     // 判断这个成语是否已经存在于历史表
     boolean isExistHistory = false;
 
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +52,9 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         setCollectIvStyle();
     }
 
-    // 根据收藏的状态，改变星星的颜色
+    /**
+     * 根据收藏的状态，改变星星的颜色.
+     */
     private void setCollectIvStyle() {
         if (isCollect) {
             collectIv.setImageResource(R.mipmap.ic_collection_fs);
@@ -54,7 +63,10 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         }
     }
 
-    // 将获取到的数据显示在View上
+    /**
+     * 将获取到的数据显示在View上.
+     * @param cyBean 成语模块
+     */
     private void showDataToView(ChengyuBean cyBean) {
         String chengyu = cyBean.getWord();
         ziTv1.setText(String.valueOf(chengyu.charAt(0)));
@@ -71,7 +83,9 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         yufaTv.setText(cyBean.getPinyin());
     }
 
-    // 查找控件的方法
+    /**
+     * 查找控件的方法.
+     */
     private void initView() {
         ziTv1 = findViewById(R.id.cyinfo_tv_zi1);
         ziTv2 = findViewById(R.id.cyinfo_tv_zi2);
@@ -86,6 +100,10 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         collectIv = findViewById(R.id.cyinfo_iv_collection);
     }
 
+    /**
+     * 点击事件.
+     * @param view 点击的视图
+     */
     public void onClick(View view) {
         if (view.getId() == R.id.cyinfo_iv_back) {
             finish();
@@ -95,6 +113,9 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 当activity被销毁时回调的方法.
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();

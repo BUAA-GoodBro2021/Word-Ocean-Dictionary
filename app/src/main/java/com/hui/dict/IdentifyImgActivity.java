@@ -11,11 +11,18 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
+/**
+ * 识别图片的Activity组件.
+ */
 public class IdentifyImgActivity extends AppCompatActivity {
     GridView gv;
     ArrayList<String> mDatas;
     private ArrayAdapter<String> adapter;
 
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +36,9 @@ public class IdentifyImgActivity extends AppCompatActivity {
         setGVListener();
     }
 
+    /**
+     * 设置GridView的监听器.
+     */
     private void setGVListener() {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -41,6 +51,10 @@ public class IdentifyImgActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 点击事件.
+     * @param view 点击的视图
+     */
     public void onClick(View view) {
         if(view.getId() == R.id.iden_iv_back){
             finish();

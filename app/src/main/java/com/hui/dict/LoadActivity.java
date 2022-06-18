@@ -27,6 +27,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 加载的Activity组件.
+ */
 public class LoadActivity extends AppCompatActivity {
     List<View> viewList = new ArrayList<>();
     View first, second, third, forth, fifth, sixth;
@@ -36,6 +39,11 @@ public class LoadActivity extends AppCompatActivity {
     // 动画
     List<Animation> topAnimation = new ArrayList<>();
     Animation middleAnimation, bottomAnimation;
+
+    /**
+     * 创建界面.
+     * @param savedInstanceState 保存实例状态
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +89,10 @@ public class LoadActivity extends AppCompatActivity {
         mainThread.start();
     }
 
+    /**
+     * 初始化视图.
+     * @throws CloneNotSupportedException 如果克隆有异常
+     */
     private void initView() throws CloneNotSupportedException {
         long baseDuration = 1500L;
         long deltaDuration = 800L;
@@ -114,6 +126,9 @@ public class LoadActivity extends AppCompatActivity {
         developerTv.setAnimation(bottomAnimation);
     }
 
+    /**
+     * 初始化列表.
+     */
     private void initList() {
         String ziList = AssetsUtils.getAssetsContent(this, CommonUtils.FILE_ZI);
         JsonArray jsonZiArray = JsonParser.parseString(ziList).getAsJsonArray();
