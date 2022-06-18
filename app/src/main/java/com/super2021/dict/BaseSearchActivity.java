@@ -19,8 +19,6 @@ import com.super2021.dict.adapter.SearchRightAdapter;
 import com.super2021.dict.bean.BaseBean;
 import com.super2021.dict.bean.StaticData;
 import com.super2021.dict.bean.ZiBean;
-//import com.hui.dict.db.DBManager;
-//import com.hui.dict.db.DBManager;
 import com.super2021.dict.utils.AssetsUtils;
 import com.super2021.dict.utils.CommonUtils;
 

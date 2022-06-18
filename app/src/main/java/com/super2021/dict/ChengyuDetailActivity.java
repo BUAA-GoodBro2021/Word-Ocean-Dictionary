@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.super2021.dict.bean.ChengyuBean;
-//import com.hui.dict.db.DBManager;
 import com.super2021.dict.bean.StaticData;
 import com.super2021.dict.bean.ZiBean;
 import com.super2021.dict.db.DBManager;

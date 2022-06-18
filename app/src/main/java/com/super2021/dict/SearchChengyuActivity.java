@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
-//import com.hui.dict.db.DBManager;
 import com.super2021.dict.bean.ChengyuBean;
 import com.super2021.dict.bean.StaticData;
 import com.super2021.dict.db.DBManager;

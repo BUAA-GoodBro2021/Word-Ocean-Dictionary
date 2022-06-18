@@ -17,7 +17,6 @@ import com.super2021.dict.ChengyuDetailActivity;
 import com.super2021.dict.R;
 import com.super2021.dict.ZiDetailActivity;
 import com.super2021.dict.db.DBManager;
-//import com.hui.dict.db.DBManager;
 
 import java.util.ArrayList;
 import java.util.List;
