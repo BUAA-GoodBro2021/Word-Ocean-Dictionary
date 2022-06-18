@@ -58,7 +58,7 @@ public class SearchLeftAdapter extends BaseExpandableListAdapter {
      * @param childDatas 所有子类的数据
      * @param type       类型
      */
-    public SearchLeftAdapter(Context context, List<String> groupDatas, List<List<PinBuBean.ResultBean>> childDatas,
+    public SearchLeftAdapter(Context context, List<String> groupDatas, List<List<BaseBean.ResultBean>> childDatas,
             int type) {
         this.context = context;
         this.groupDatas = groupDatas;

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 图文模块.
  */
-public class TuWenBean {
+public class TuwenBean {
 
     private long log_id;
     private int words_result_num;

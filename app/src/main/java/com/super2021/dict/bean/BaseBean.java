@@ -5,8 +5,7 @@ import java.util.List;
 /**
  * 成语模块.
  */
-public class PinBuBean {
-
+public class BaseBean {
     private String reason;
     private int error_code;
     private List<ResultBean> result;
