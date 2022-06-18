@@ -78,13 +78,13 @@ public class ChengyuDetailActivity extends AppCompatActivity {
         ziTv3.setText(String.valueOf(chengyu.charAt(2)));
         ziTv4.setText(String.valueOf(chengyu.charAt(3)));
         pinyinTv.setText(String.format("拼音 : %s",
-                chengyuBean.getPinyin()));
+                cyBean.getPinyin()));
         suoxieTv.setText(String.format("缩写 : %s",
-                chengyuBean.getAbbreviation()));
-        explanationTv.setText(chengyuBean.getExplanation());
-        fromTv.setText(chengyuBean.getDerivation());
-        exampleTv.setText(chengyuBean.getExample());
-        yufaTv.setText(chengyuBean.getPinyin());
+                cyBean.getAbbreviation()));
+        explanationTv.setText(cyBean.getExplanation());
+        fromTv.setText(cyBean.getDerivation());
+        exampleTv.setText(cyBean.getExample());
+        yufaTv.setText(cyBean.getPinyin());
     }
 
     /**

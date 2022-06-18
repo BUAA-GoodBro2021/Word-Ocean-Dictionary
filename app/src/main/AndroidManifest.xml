@@ -40,7 +40,7 @@
         <activity android:name=".IdentifyImgActivity" />
         <activity android:name=".ZiDetailActivity" />
         <activity android:name=".SearchPinyinActivity" />
-        <activity android:name=".SearchBuShouActivity" />
+        <activity android:name=".SearchBushouActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

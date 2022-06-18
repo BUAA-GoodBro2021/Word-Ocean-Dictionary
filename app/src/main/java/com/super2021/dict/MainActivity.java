@@ -95,16 +95,14 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * alert文案.
-     * 
-     * @param title   标题
-     * @param message 信息
+     *  @param title   标题
      */
-    private void alertText(final String title, final String message) {
+    private void alertText(final String title) {
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 alertDialog.setTitle("AK，SK方式获取token失败")
-                        .setMessage(message)
+                        .setMessage(title)
                         .setPositiveButton("确定", null)
                         .show();
             }

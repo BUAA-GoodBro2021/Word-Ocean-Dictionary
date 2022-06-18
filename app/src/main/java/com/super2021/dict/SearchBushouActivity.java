@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * 部首查找的Activity组件.
  */
-public class SearchBuShouActivity extends BaseSearchActivity {
+public class SearchBushouActivity extends BaseSearchActivity {
     /**
      * 创建界面.
      * 

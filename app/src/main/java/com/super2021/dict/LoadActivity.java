@@ -50,7 +50,11 @@ public class LoadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_load);
-        initView();
+        try {
+            initView();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         Thread loadThread = new Thread() {
             @Override
             public void run() {
